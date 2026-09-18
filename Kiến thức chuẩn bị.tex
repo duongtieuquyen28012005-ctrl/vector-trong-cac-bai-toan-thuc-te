@@ -1,0 +1,330 @@
+\documentclass[12pt,a4paper,oneside]{book}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath, amsthm, amssymb,latexsym,amscd,amsfonts,enumerate,titlesec,titletoc}
+\usepackage[top=3.0cm, bottom=3.0cm, left=3.5cm, right=2.0cm]{geometry}
+% căn lề theo quy chuẩn KLTN
+\usepackage{color, fancyhdr, graphicx, wrapfig}
+\usepackage[unicode]{hyperref}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{array}
+\usetikzlibrary{calc}
+%\newtheorem{example}{Ví dụ}[section]
+\def\chaptertitlename{\fontsize{14pt}{14pt}\selectfont{CHƯƠNG}}
+\titleformat{\chapter}[display]
+{\vspace{-2cm}\normalfont\Large\filcenter\bfseries}
+{{{\chaptertitlename\,}\thechapter}} {0pc}{{}\MakeUppercase}
+\theoremstyle{theorem}
+\newtheorem{theorem}{Định lý}[section]
+\theoremstyle{definition}
+\newtheorem{theorem2}{Định nghĩa}[section]
+\newtheorem{dn}[theorem2]{Định nghĩa}
+\newtheorem{nx}[theorem2]{Nhận xét}
+\newtheorem{vd}[theorem2]{Ví dụ}
+\newtheorem{md}[theorem2]{Mệnh đề}
+\newtheorem{tc}[theorem2]{Tính chất}
+\newtheorem{bd}[theorem2]{Bổ đề} 
+\newtheorem{dl}[theorem2]{Định lý}
+\newtheorem{bt}[theorem2]{Bài toán}
+\newtheorem{hq}[theorem2]{Hệ quả}
+\newtheorem{cy}[theorem2]{Chú ý}
+%\newtheorem{example}{Ví dụ}[section]
+%\newtheorem{proposition}{Mệnh đề}[section]
+%\newtheorem{definition}[proposition]{Định nghĩa}
+%\newtheorem{remark}[proposition]{Nhận xét}
+%\newtheorem{theorem}[proposition]{Định lý}
+%\newtheorem{example}[proposition]{Ví dụ}
+%\newtheorem{corollary}[proposition]{Hệ quả}
+%\newtheorem{lemma}[proposition]{Bổ đề}
+\newtheorem{Theorem}{Theorem}[section]
+\newtheorem{Proposition}[Theorem]{Proposition}
+\newtheorem{Remark}[Theorem]{Remark}
+\newtheorem{Lemma}[Theorem]{Lemma}
+\newtheorem{Corollary}[Theorem]{Corollary}
+\newtheorem{Definition}[Theorem]{Definition}
+\newtheorem{Example}[Theorem]{Example}
+\newcommand{\br}[1]{\left(#1\right)} %ngoặc tròn
+\newcommand{\brb}[1]{\left\{#1\right\}} %ngoặc nhọn, tập hợp
+\newcommand{\brc}[1]{\left[#1\right]} %ngoặc vuông
+\newcommand{\bao}[1]{\left<#1\right>} 
+\newcommand{\tri}[1]{\left|#1\right|}
+\newcommand{\flo}[1]{ \left \lfloor #1 \right \rfloor}
+\newtheorem*{case1}{Trường hợp 1}
+\newtheorem*{case2}{Trường hợp 2}
+\newtheorem*{case3}{Trường hợp 3}
+\newcommand{\aut}[1]{\mbox{Aut}\br{#1}}
+\newcommand{\gal}[1]{\mbox{Gal}\br{#1}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+
+
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\normalsize
+\pagestyle{fancy}
+\makeatletter
+\renewcommand{\ps@plain}{
+	\renewcommand{\@oddfoot}{\textrm{\centerline{\thepage}}}
+	\renewcommand{\@evenfoot}{\@oddfoot}
+	\renewcommand{\@oddhead}{}
+	\renewcommand{\@evenhead}{\@oddhead}}
+\pagestyle{plain}
+
+%%%%%%%%%%%%%%%%%
+\begin{document}
+	\fontsize{13pt}{18pt}\selectfont % Lệnh thay đổi cỡ chữ thành cỡ 14, cỡ dòng 18 (theo quy chuẩn của Khóa Luận TN).
+	\setlength{\baselineskip}{26truept}
+	%\fontsize{13pt}{14pt}\selectfont
+	\pagenumbering{arabic}
+	%\pagenumbering{roman}
+	%\frontmatter
+	\pagestyle{empty}
+	
+\chapter{KIẾN THỨC CHUẨN BỊ}
+  % NHớ viết vô chương này ......
+\section{Vectơ trong không gian}
+    \subsection{Vectơ trong không gian}
+        \begin{dn}
+                Vectơ trong không gian là một đoạn thẳng có hướng.
+        \end{dn}
+        \begin{center}
+            \includegraphics[width=0.33\textwidth]{Hinh3.jpg}
+        \end{center}
+        \begin{cy}
+            \begin{itemize}
+                \item Kí hiệu $\overrightarrow{AB}$ chỉ vectơ có điểm đầu $A$, điểm cuối $B$.
+                 \item Nếu không cần chỉ rõ điểm đầu và điểm cuối thì vectơ còn được kí hiệu là $\vec{u}, \vec{v}, \vec{x}, \vec{y}, \ldots$
+             \end{itemize}
+        \end{cy}
+       
+        %%%%%%%%%%%%VẼ HÌNHHHHHHHHHHHHHHHH
+        \begin{dn}
+            Các khái niệm có liên quan đến vectơ trong không gian như: giá của vectơ, độ dài của vectơ, vectơ cùng phương, vectơ cùng hướng, vectơ-không, hai vectơ bằng nhau, hai vectơ đối nhau,... được định nghĩa tương tự như trong mặt phẳng.
+        \end{dn}
+        \begin{vd}
+            Cho tứ diện $ABCD$, trong hình vẽ biểu diễn các vectơ có điểm đầu là $A$ và điểm cuối là các đỉnh $B,C,D$
+            \begin{center}
+                \includegraphics[width=0.33 \textwidth]{Hinh4.jpg}
+            \end{center}
+            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HÌNHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+        \end{vd}
+
+    \subsection{Các phép toán với vectơ trong không gian}
+    \begin{itemize}
+        \item[\textbf{a)}] \textbf{Tổng và hiệu của hai vectơ trong không gian}
+        \begin{dn}
+            Trong không gian, cho hai vectơ $\vec{a}, \vec{b}$. Lấy một điểm $A$ tùy ý, vẽ $\overrightarrow{OA} = \vec{a}$, $\overrightarrow{AB} = \vec{b}$. Vectơ $\overrightarrow{OB}$ được gọi là tổng của hai vectơ $\vec{a}$ và $\vec{b}$, kí hiệu là $\overrightarrow{OB} = \vec{a} + \vec{b}$.
+        \end{dn}
+        \begin{nx}
+            Đối với vectơ trong không gian, ta cũng có các quy tắc sau:
+            \begin{itemize}
+                \item Đối với ba điểm $A,B,C$ trong không gian, ta có: $\overrightarrow{AB}+\overrightarrow{BC}=\overrightarrow{AC}$ (Quy tắc ba điểm).
+                \item Nếu $ABCD$ là hình bình hành thì $\overrightarrow{AB}+\overrightarrow{AD}= \overrightarrow{AC}$.
+                \begin{center}
+                    \includegraphics[width=0.6\textwidth]{Hinh5.jpg}
+                \end{center}
+                \item Nếu $ABCD.A'B'C'D'$ là hình hộp thì $\overrightarrow{AB}+\overrightarrow{AD}+\overrightarrow{AA'}=\overrightarrow{AC'}$ (Quy tắc hình hộp).
+                \begin{center}
+                    \includegraphics[width=0.3\textwidth]{Hinh6.jpg}
+                \end{center}
+            \end{itemize}
+        \end{nx}
+        \begin{dn}
+            Trong không gian, cho hai vectơ $\vec{a}, \vec{b}$. Hiệu của vectơ $\vec{a}$ và vectơ $\vec{b}$ là tổng của vectơ $\vec{a}$ và vectơ đối của vectơ $\vec{b}$, kí hiệu là $\vec{a} - \vec{b}$.
+        \end{dn}
+        \begin{nx}
+            Với ba điểm $O, A, B$ trong không gian, ta có $\overrightarrow{OA} - \overrightarrow{OB} = \overrightarrow{BA}$ (quy tắc hiệu).
+        \end{nx}
+         \item[\textbf{b)}] \textbf{Tích của một với một vectơ}
+         \begin{dn}
+             Cho số thực $k \ne 0$ và vectơ $\vec{a} \ne \vec{0}$. Tích của số $k$ với vectơ $\vec{a}$ là một vectơ, kí hiệu là $k\vec{a}$, được xác định như sau:
+        \end{dn}
+        \begin{itemize}
+            \item Cùng hướng với vectơ $\vec{a}$ nếu $k > 0$, ngược hướng với vectơ $\vec{a}$ nếu $k < 0$;
+            \item Có độ dài bằng $|k|\cdot|\vec{a}|$.
+        \end{itemize}
+        \begin{nx}
+            Quy ước: $0\vec{a} = \vec{0}$, $k\vec{0} = \vec{0}$. Do đó, $k\vec{a} = \vec{0}$ khi và chỉ khi $k = 0$ hoặc $\vec{a} = \vec{0}$.
+        \end{nx}
+        \item[\textbf{c)}] \textbf{Tích vô hướng của hai vectơ} 
+        \begin{dn}
+            Trong không gian, cho hai vectơ $\vec{u}, \vec{v}$ khác $\vec{0}$. Lấy một điểm $A$ tùy ý và vẽ hai vectơ $\overrightarrow{AB} = \vec{u}$, $\overrightarrow{AC} = \vec{v}$. Góc giữa hai vectơ $\vec{u}, \vec{v}$ trong không gian, kí hiệu $(\vec{u},\vec{v})$, là góc giữa hai vectơ $\overrightarrow{AB},\overrightarrow{AC}$.
+            \begin{center}
+            \includegraphics[width=0.4\textwidth]{Hinh7.jpg}
+             \end{center}
+        \end{dn}
+        \begin{cy}
+          $0^\circ \leq (\vec{u},\vec{v}) \leq 180^\circ$.
+        \end{cy} 
+       
+        Trong trường hợp tổng quát, ta có định nghĩa sau:
+        \begin{dn}
+            Trong không gian, cho hai vectơ $\vec{a},\vec{b}$ khác $\vec{0}$. Tích vô hướng của hai vectơ $\vec{a}$ và $\vec{b}$, kí hiệu
+            $\vec{a}\cdot\vec{b}$, là một số thực được xác định bởi công thức:
+            $\vec{a}\cdot\vec{b}=|\vec{a}|\,|\vec{b}|\cos(\vec{a},\vec{b})$, ở đó $(\vec{a},\vec{b})$ là góc giữa hai vectơ $\vec{a},\vec{b}$.
+        \end{dn}
+        \begin{nx}
+            Tích vô hướng của một vectơ với vectơ $\vec{0}$ bằng $0$.
+        \end{nx}
+        \begin{cy}
+            Với các vectơ bất kì $\vec{a}, \vec{b}, \vec{c}$ và số thực $k$ tùy ý, ta có:
+            \begin{itemize}
+                \item $\vec{a}\vec{b} = \vec{b}\vec{a}$ (tính chất giao hoán);
+                \item $\vec{a}(\vec{b}+\vec{c}) = \vec{a}\vec{b}+\vec{a}\vec{c}$ (tính chất phân phối);
+                \item $(k\vec{a})\cdot\vec{b} = k(\vec{a}\cdot\vec{b}) = \vec{a}\cdot(k\vec{b})$;
+                \item $(\vec{a})^{\,2} \geq 0,\quad (\vec{a})^{\,2}=0 \Leftrightarrow \vec{a}=\vec{0}$.
+                \item Nếu $\vec{a},\vec{b}$ là hai vectơ khác $\vec{0}$ thì $\cos(\vec{a},\vec{b})=\dfrac{\vec{a}\cdot\vec{b}}{|\vec{a}|\cdot|\vec{b}|}$.
+            \end{itemize}
+        \end{cy}
+        \end{itemize}
+    \subsection{Ba vectơ đồng phẳng}
+    \begin{dn}
+        Trong không gian, ba vectơ được gọi là đồng phẳng nếu các giá của chúng cùng song song với một mặt phẳng.
+    \end{dn}
+    \begin{nx}
+        Người ta cũng chứng minh được một số điều kiện sau đây để ba vectơ trong không gian là đồng phẳng:
+        \begin{itemize}
+            \item Trong không gian, cho hai vectơ $\vec{a},\vec{b}$ không cùng phương và vectơ $\vec{c}$. Khi đó, ba vectơ $\vec{a},\vec{b},\vec{c}$ đồng phẳng khi và chỉ khi có cặp số $m,n$ sao cho $\vec{c}=m\vec{a}+n\vec{b}$. Ngoài ra cặp số $m,n$ là duy nhất.
+            \item Trong không gian, cho ba vectơ $\vec{a},\vec{b},\vec{c}$ đều khác vectơ-không. Từ điểm $O$ trong không gian, ta vẽ $\overrightarrow{OA}=\vec{a},\overrightarrow{OB}=\vec{b},\overrightarrow{OC}=\vec{c}$. Khi đó, ba vectơ $\vec{a},\vec{b},\vec{c}$ đồng phẳng khi và chỉ khi bốn điểm $O,A,B,C$ cùng thuộc một mặt phẳng.
+        \end{itemize}
+        \begin{vd}
+            Cho hình hộp $ABCD.A'B'C'D'$ và các điểm $M,N,P,Q,E,G$ như hình vẽ. Nếu $PQ \parallel AD$ và $EG \parallel DC$ thì $\overrightarrow{MN},\overrightarrow{PQ}$ và $\overrightarrow{EG}$ đồng phẳng, vì giá của chúng cùng song song với mặt phẳng $(ABCD)$.
+        \end{vd}
+        \begin{center}
+            \includegraphics[width=0.35 \textwidth]{Hinh8.jpg}
+        \end{center}
+    \end{nx}
+    \section{Hệ trục toạ độ Oxyz, toạ độ vectơ}
+    \subsection{Hệ trục toạ độ trong không gian}
+    \begin{center}
+            \includegraphics[width=0.6 \textwidth]{Hinh9.jpg}
+    \end{center}
+    \begin{dn}
+        Hệ gồm ba trục $Ox, Oy, Oz$ đôi một vuông góc được gọi là hệ trục tọa độ vuông góc $Oxyz$ trong không gian hay đơn giản là hệ tọa độ $Oxyz$.
+    \end{dn}
+    \begin{cy}
+        Ta gọi $\vec{i},\vec{j},\vec{k}$ lần lượt là các vectơ đơn vị trên các trục $Ox, Oy, Oz$.
+
+        \noindent Gọi tên:
+        \begin{itemize}
+            \item Điểm $O$ là gốc tọa độ;
+            \item $Ox$ là trục hoành;
+            \item $Oy$ là trục tung;
+            \item $Oz$ là trục cao;
+            \item Các mặt phẳng $(Oxy),(Oyz),(Ozx)$ là các mặt phẳng tọa độ;
+            \item Không gian với hệ tọa độ $Oxyz$ còn được gọi là không gian $Oxyz$.
+        \end{itemize}
+    \end{cy}
+    \begin{nx}
+        Các mặt phẳng tọa độ $(Oxy),(Oyz),(Ozx)$ đôi một vuông góc với nhau.
+    \end{nx}
+    \subsection{Toạ độ của một điểm}
+    \begin{dn}
+        Trong không gian $Oxyz$, cho điểm $M$. Nếu $\overrightarrow{OM}=x\vec{i}+y\vec{j}+z\vec{k}$ thì ta gọi bộ ba số $(x;y;z)$ là tọa độ của điểm $M$ đối với hệ trục tọa độ $Oxyz$ và viết $M=(x;y;z)$ hoặc $M(x;y;z)$, với $x$ là hoành độ, $y$ là tung độ và $z$ là cao độ.
+    \end{dn}
+    \begin{cy} \textbf{(Về toạ độ hình chiếu)}
+        Trong không gian $Oxyz$, cho điểm $M(x_M;y_M;z_M)$.
+        \begin{itemize}
+            \item Hình chiếu vuông góc của $M$ lên $(Oxy)$ là $M_1(x_M;y_M;0)$;
+            \item Hình chiếu vuông góc của $M$ lên $(Oyz)$ là $M_2(0;y_M;z_M)$;
+            \item Hình chiếu vuông góc của $M$ lên $(Ozx)$ là $M_3(x_M;0;z_M)$;
+            \item Hình chiếu vuông góc của $M$ lên trục $Ox$ là $M_4(x_M;0;0)$;
+            \item Hình chiếu vuông góc của $M$ lên trục $Oy$ là $M_5(0;y_M;0)$;
+            \item Hình chiếu vuông góc của $M$ lên trục $Oz$ là $M_6(0;0;z_M)$.
+        \end{itemize}
+    \end{cy}
+    \subsection{Toạ độ của một vectơ}
+    \begin{dn}
+        Tọa độ của điểm $M$ được gọi là tọa độ của vectơ $\overrightarrow{OM}$.
+        $$\overrightarrow{OM}=(a;b;c)\Leftrightarrow M(a;b;c)$$
+    \end{dn}
+    \begin{center}
+        \includegraphics[width=0.6 \textwidth]{Hinh10.jpg}
+    \end{center}
+    \begin{dn}
+        \begin{itemize}
+            \item Vectơ đơn vị $\vec{i}$ trên trục $Ox$ có tọa độ là $\vec{i}=(1;0;0)$;
+            \item Vectơ đơn vị $\vec{j}$ trên trục $Oy$ có tọa độ là $\vec{j}=(0;1;0)$;
+            \item Vectơ đơn vị $\vec{k}$ trên trục $Oz$ có tọa độ là $\vec{k}=(0;0;1)$.
+        \end{itemize}
+    \end{dn}
+    \begin{dn}
+        Trong không gian với hệ tọa độ $Oxyz$, tọa độ của một vectơ $\vec{u}$ là tọa độ của điểm $A$, trong đó $A$ là điểm sao cho $\overrightarrow{OA}=\vec{u}$.
+    \end{dn}
+    \begin{nx}
+        \begin{itemize}
+            \item Nếu $\vec{u}$ có tọa độ $(a;b;c)$ thì ta viết $\vec{u}=(a;b;c)$, trong đó $a$ gọi là hoành độ, $b$ gọi là tung độ và $c$ gọi là cao độ của vectơ $\vec{u}$.
+            \item Nếu $\vec{u}=(a;b;c)$ thì $\vec{u}=a\vec{i}+b\vec{j}+c\vec{k}$. Ngược lại, nếu $\vec{u}=a\vec{i}+b\vec{j}+c\vec{k}$ thì $\vec{u}=(a;b;c)$.
+        \end{itemize}
+    \end{nx}
+    \begin{cy}
+        Với $\vec{u}=(x_1;y_1;z_1)$ và $\vec{v}=(x_2;y_2;z_2)$, ta có:
+        $\vec{u}=\vec{v}\Leftrightarrow
+        \small \begin{cases}
+        x_1=x_2\\
+        y_1=y_2\\
+        z_1=z_2
+        \end{cases}$
+    \end{cy}
+    \begin{tc}
+        Trong không gian với hệ tọa độ $Oxyz$, cho hai điểm $A(x_A;y_A;z_A)$ và $B(x_B;y_B;z_B)$. Khi đó, $\overrightarrow{AB}=(x_B-x_A;y_B-y_A;z_B-z_A)$.
+    \end{tc}
+
+    \section{Biểu thức toạ độ các phép toán vectơ}
+    \subsection{Biểu thức tọa độ của phép cộng hai vectơ, phép trừ hai vectơ, phép nhân một số với một vectơ}
+        \begin{center}
+        \includegraphics[width=0.5\textwidth]{Hinh2..jpg}
+        \end{center}
+        \begin{tc}
+            Nếu $\vec{u}=(x_1;y_1;z_1)$ và $\vec{v}=(x_2;y_2;z_2)$ thì 
+            
+            \hspace{5cm} $\vec{u}+\vec{v}=(x_1+x_2;y_1+y_2;z_1+z_2);$ 
+            
+            \hspace{5cm} $\vec{u}-\vec{v}=(x_1-x_2;y_1-y_2;z_1-z_2);$
+            
+            \hspace{5cm} $m\vec{u}=(mx_1;my_1;mz_1),\quad \text{với }m\in\mathbb{R}.$
+        \end{tc}
+        \begin{nx}
+            Hai vectơ $\vec{u}=(x_1;y_1;z_1)$, $\vec{v}=(x_2;y_2;z_2)$ $(\vec{v}\ne\vec{0})$ cùng phương khi và chỉ khi có một số thực $m$ sao cho
+                $\small \begin{cases}
+                x_1=mx_2,\\
+                y_1=my_2,\\
+                z_1=mz_2.
+                \end{cases}.
+                $
+        \end{nx}
+    \subsection{Tọa độ trung điểm đoạn thẳng, tọa độ trọng tâm tam giác}
+    \begin{tc}
+        Cho hai điểm $A(x_A;y_A;z_A)$ và $B(x_B;y_B;z_B)$. Nếu $M(x_M;y_M;z_M)$ là trung điểm đoạn thẳng $AB$ thì
+            \[
+            x_M=\frac{x_A+x_B}{2};\quad y_M=\frac{y_A+y_B}{2};\quad z_M=\frac{z_A+z_B}{2}.
+            \]
+    \end{tc}
+    \begin{tc}
+        Cho tam giác $ABC$ có $A(x_A;y_A;z_A)$, $B(x_B;y_B;z_B)$, $C(x_C;y_C;z_C)$. Nếu $G(x_G;y_G;z_G)$ là trọng tâm tam giác $ABC$ thì
+            \[
+            x_G=\frac{x_A+x_B+x_C}{3};\quad y_G=\frac{y_A+y_B+y_C}{3};\quad z_G=\frac{z_A+z_B+z_C}{3}.
+            \]
+    \end{tc}
+    \subsection{Biểu thức toạ độ của tích vô hướng}
+    \begin{dn}
+        Nếu $\vec{u}=(x_1;y_1;z_1)$ và $\vec{v}=(x_2;y_2;z_2)$ thì $\vec{u}\cdot\vec{v}=x_1x_2+y_1y_2+z_1z_2$.
+    \end{dn}
+    \begin{nx}
+        \begin{itemize}
+            \item Nếu $\vec{a}=(x;y;z)$ thì $|\vec{a}|=\sqrt{\vec{a}\cdot\vec{a}}=\sqrt{x^2+y^2+z^2}$.
+            \item Nếu $A(x_1;y_1;z_1)$ và $B(x_2;y_2;z_2)$ thì
+                \[
+                AB=|\overrightarrow{AB}|=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}.
+                \]
+            \item Với hai vectơ $\vec{u}=(x_1;y_1;z_1)$ và $\vec{v}=(x_2;y_2;z_2)$ khác $\vec{0}$, ta có:
+            
+            $\vec{u}$ và $\vec{v}$ vuông góc với nhau khi và chỉ khi $x_1x_2+y_1y_2+z_1z_2=0$.
+            \item $\cos(\vec{u},\vec{v})=\displaystyle \frac{\vec{u}\cdot\vec{v}}{|\vec{u}|\cdot|\vec{v}|} =\frac{x_1x_2+y_1y_2+z_1z_2}{\sqrt{x_1^2+y_1^2+z_1^2}\cdot\sqrt{x_2^2+y_2^2+z_2^2}}$.
+        \end{itemize}
+    \end{nx}
+    
+\end{document}
+
+    

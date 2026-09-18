@@ -1,0 +1,324 @@
+\documentclass[12pt,a4paper,oneside]{book}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath, amsthm, amssymb,latexsym,amscd,amsfonts,enumerate,titlesec,titletoc}
+\usepackage[top=3.0cm, bottom=3.0cm, left=3.5cm, right=2.0cm]{geometry}
+% căn lề theo quy chuẩn KLTN
+\usepackage{color, fancyhdr, graphicx, wrapfig}
+\usepackage[unicode]{hyperref}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{array}
+\usetikzlibrary{calc}
+%\newtheorem{example}{Ví dụ}[section]
+\def\chaptertitlename{\fontsize{14pt}{14pt}\selectfont{CHƯƠNG}}
+\titleformat{\chapter}[display]
+{\vspace{-2cm}\normalfont\Large\filcenter\bfseries}
+{{{\chaptertitlename\,}\thechapter}} {0pc}{{}\MakeUppercase}
+\theoremstyle{theorem}
+\newtheorem{theorem}{Định lý}[section]
+\theoremstyle{definition}
+\newtheorem{theorem2}{Định nghĩa}[section]
+\newtheorem{dn}[theorem2]{Định nghĩa}
+\newtheorem{nx}[theorem2]{Nhận xét}
+\newtheorem{vd}[theorem2]{Ví dụ}
+\newtheorem{md}[theorem2]{Mệnh đề}
+\newtheorem{tc}[theorem2]{Tính chất}
+\newtheorem{bd}[theorem2]{Bổ đề} 
+\newtheorem{dl}[theorem2]{Định lý}
+\newtheorem{bt}[theorem2]{Bài toán}
+\newtheorem{hq}[theorem2]{Hệ quả}
+\newtheorem{cy}[theorem2]{Chú ý}
+%\newtheorem{example}{Ví dụ}[section]
+%\newtheorem{proposition}{Mệnh đề}[section]
+%\newtheorem{definition}[proposition]{Định nghĩa}
+%\newtheorem{remark}[proposition]{Nhận xét}
+%\newtheorem{theorem}[proposition]{Định lý}
+%\newtheorem{example}[proposition]{Ví dụ}
+%\newtheorem{corollary}[proposition]{Hệ quả}
+%\newtheorem{lemma}[proposition]{Bổ đề}
+\newtheorem{Theorem}{Theorem}[section]
+\newtheorem{Proposition}[Theorem]{Proposition}
+\newtheorem{Remark}[Theorem]{Remark}
+\newtheorem{Lemma}[Theorem]{Lemma}
+\newtheorem{Corollary}[Theorem]{Corollary}
+\newtheorem{Definition}[Theorem]{Definition}
+\newtheorem{Example}[Theorem]{Example}
+\newcommand{\br}[1]{\left(#1\right)} %ngoặc tròn
+\newcommand{\brb}[1]{\left\{#1\right\}} %ngoặc nhọn, tập hợp
+\newcommand{\brc}[1]{\left[#1\right]} %ngoặc vuông
+\newcommand{\bao}[1]{\left<#1\right>} 
+\newcommand{\tri}[1]{\left|#1\right|}
+\newcommand{\flo}[1]{ \left \lfloor #1 \right \rfloor}
+\newtheorem*{case1}{Trường hợp 1}
+\newtheorem*{case2}{Trường hợp 2}
+\newtheorem*{case3}{Trường hợp 3}
+\newcommand{\aut}[1]{\mbox{Aut}\br{#1}}
+\newcommand{\gal}[1]{\mbox{Gal}\br{#1}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+
+
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\normalsize
+\pagestyle{fancy}
+\makeatletter
+\renewcommand{\ps@plain}{
+	\renewcommand{\@oddfoot}{\textrm{\centerline{\thepage}}}
+	\renewcommand{\@evenfoot}{\@oddfoot}
+	\renewcommand{\@oddhead}{}
+	\renewcommand{\@evenhead}{\@oddhead}}
+\pagestyle{plain}
+
+%%%%%%%%%%%%%%%%%
+\begin{document}
+	\fontsize{13pt}{18pt}\selectfont % Lệnh thay đổi cỡ chữ thành cỡ 14, cỡ dòng 18 (theo quy chuẩn của Khóa Luận TN).
+	\setlength{\baselineskip}{26truept}
+	%\fontsize{13pt}{14pt}\selectfont
+	\pagenumbering{arabic}
+	%\pagenumbering{roman}
+	%\frontmatter
+	\pagestyle{empty}
+
+  
+    \chapter{Ứng dụng vectơ tính khoảng cách trong các mô hình hình học}
+    \section{Một số điểm lý thuyết quan trọng}
+    \subsection{Biểu thức toạ độ của tích vô hướng}
+    \begin{dn}
+        Nếu $\vec{u}=(x_1;y_1;z_1)$ và $\vec{v}=(x_2;y_2;z_2)$ thì $\vec{u}\cdot\vec{v}=x_1x_2+y_1y_2+z_1z_2$.
+    \end{dn}
+    \begin{nx}
+        \begin{itemize}
+            \item Nếu $\vec{a}=(x;y;z)$ thì $|\vec{a}|=\sqrt{\vec{a}\cdot\vec{a}}=\sqrt{x^2+y^2+z^2}$.
+            \item Nếu $A(x_1;y_1;z_1)$ và $B(x_2;y_2;z_2)$ thì
+            \[
+            AB=|\overrightarrow{AB}|=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}.
+            \]
+            \item Với hai vectơ $\vec{u}=(x_1;y_1;z_1)$ và $\vec{v}=(x_2;y_2;z_2)$ khác vectơ $\vec{0}$, ta có:
+
+            $\vec{u}$ và $\vec{v}$ vuông góc với nhau khi và chỉ khi $x_1x_2+y_1y_2+z_1z_2=0$.
+            \item $\cos(\vec{u},\vec{v})
+                =\displaystyle \frac{\vec{u}\cdot\vec{v}}{|\vec{u}|\cdot|\vec{v}|}
+                =\frac{x_1x_2+y_1y_2+z_1z_2}
+                {\sqrt{x_1^2+y_1^2+z_1^2}\sqrt{x_2^2+y_2^2+z_2^2}}.$
+        \end{itemize}
+    \end{nx}
+    \subsection{Diện tích và thể tích}
+    \begin{nx}
+        \begin{itemize}
+            \item Diện tích hình bình hành $ABCD$: $S_{ABCD}=\left|[\overrightarrow{AB},\overrightarrow{AD}]\right|.$
+        
+            \item Diện tích tam giác $ABC$: $S_{ABC}=\frac{1}{2}\left|[\overrightarrow{AB},\overrightarrow{AC}]\right|.$
+        
+            \item Thể tích khối hộp $ABCD.A'B'C'D'$: $V=\left|[\overrightarrow{AB},[\overrightarrow{AD},\overrightarrow{AA'}]]\right|.$
+        
+            \item Thể tích tứ diện $ABCD$: $V=\frac{1}{6}\left|\overrightarrow{AB}\cdot[\overrightarrow{AC},\overrightarrow{AD}]\right|.$
+        \end{itemize}
+    \end{nx}
+    \subsection{Một số kinh nghiệm khi làm bài}
+    \begin{cy}
+        Các bài toán này thường có các đặc trưng sau:
+        \begin{itemize}
+            \item Tính thể tích khối đa diện khi cho cạnh, đường chéo.
+        \end{itemize}
+        \begin{itemize}
+            \item Tính khoảng cách, độ dài đoạn thẳng trong lăng trụ/lục giác đều.
+            
+            \item Thiết lập tọa độ điểm phụ, viết vectơ bằng tổ hợp các vectơ cơ bản.
+            
+            \item Xác định vị trí điểm di động theo tham số $x,y$ giải hệ để tìm khoảng cách nhỏ nhất hoặc thỏa mãn điều kiện.
+            
+            \item Khi có điểm di động (tham số)
+            \begin{itemize}
+                \item Biểu diễn vectơ bằng tổ hợp tuyến tính theo tham số.
+                \item Dùng tích vô hướng hoặc biểu thức độ dài để lập phương trình/hệ điều kiện.
+                \item Bài toán ``khoảng cách nhỏ nhất'' thường quy về tìm giá trị nhỏ nhất của tam thức bậc hai.
+            \end{itemize}
+            \end{itemize}
+    \end{cy}
+    \section{Một số ví dụ điển hình và ý tưởng giải}
+    \begin{vd}
+        Phòng khách nhà bác An có dạng là một hình hộp chữ nhật $ABCD.A'B'C'D'$ với $AB=5\,\mathrm{m}$, $BC=6\,\mathrm{m}$, $AA'=3\,\mathrm{m}$. Để chuẩn bị đón Tết Nguyên Đán bác lên kế hoạch trang trí cho phần không gian của phòng khách bằng các dây đèn trang trí $NC$, $BM$, $EF$ được mắc như hình vẽ. Biết rằng $EF$ song song với $AC$ và $BN=2\,\mathrm{m}$; $DM=1\,\mathrm{m}$. Giá mỗi mét dây đèn trang trí là $120\,000$ đồng. Hỏi số tiền bác mua dây đèn trang trí là bao nhiêu triệu đồng?.
+        \begin{center}
+            \includegraphics[width=0.35 \textwidth]{Hinh16.jpg}
+        \end{center}
+    \end{vd}
+    \noindent \underline{\textbf{Nhận xét của tác giả:}} Ví dụ này được lựa chọn vì gắn với một tình huống thực tế khá gần gũi là trang trí không gian trong một căn phòng. Khác với các ví dụ trước chủ yếu sử dụng tọa độ để xác định khoảng cách giữa các điểm, ví dụ này yêu cầu tính độ dài của nhiều đoạn dây trang trí nằm ở những vị trí khác nhau trong không gian. Đặc biệt, điều kiện $EF\parallel AC$ tạo ra sự liên hệ giữa các đoạn thẳng trong các mặt phẳng khác nhau, qua đó minh họa khả năng sử dụng tọa độ và vectơ để mô hình hóa một bài toán hình học không gian có nhiều yếu tố ràng buộc.
+
+    \noindent \underline{\textbf{Ý tưởng giải:}} Chọn hệ trục tọa độ $Oxyz$ phù hợp với các cạnh của hình hộp chữ nhật, từ đó xác định tọa độ các đỉnh và các điểm $M$, $N$ dựa vào những khoảng cách đã cho. Tính độ dài hai đoạn dây $NC$ và $DM$ bằng công thức khoảng cách giữa hai điểm trong không gian. Đối với đoạn $EF$, sử dụng điều kiện $EF\parallel AC$ để biểu diễn vectơ $\overrightarrow{EF}$ cùng phương với $\overrightarrow{AC}$, đồng thời dựa vào vị trí của $E$, $F$ trên các cạnh để xác định độ dài $EF$. Cuối cùng, cộng độ dài ba đoạn dây trang trí và nhân với đơn giá để tính tổng chi phí.
+    
+    \noindent \underline{\textbf{Lời giải cụ thể:}}
+    \begin{center}
+        \includegraphics[width=0.55 \textwidth]{Hinh24.jpg}
+    \end{center}
+    
+    \noindent \textit{Bước 1. Đặt hệ trục -- tọa độ điểm}
+       
+        Chọn $B'(0;0;0)$, các trục song song với các cạnh. 
+        
+        Khi đó:
+            $B(0;0;3),\quad A(5;0;3),\quad C(0;6;3),\quad D(5;6;3).$
+       
+        Vì $DM=1\Rightarrow M(5;6;2)$; $BN=2\Rightarrow N(0;0;1)$.
+        
+    \noindent \textit{Bước 2. Tính $BM$ và $CN$}
+    
+        Ta có: $\overrightarrow{BM}=(5;6;-1) \Rightarrow |BM|=\sqrt{5^2+6^2+(-1)^2}=\sqrt{62}.$
+        
+        Lại có:
+        $\overrightarrow{CN}=(0;-6;-2) \Rightarrow |CN|=\sqrt{0^2+(-6)^2+(-2)^2}=2\sqrt{10}.$
+        
+    \noindent \textit{Bước 3. Tìm tham số hóa $E\in BM$, $F\in CN$ và dùng điều kiện $EF\parallel AC$}
+        
+        Lấy $E\in BM$: $E=B+a(5;6;-1)=(5a;6a;3-a),\quad (0<a<1).$
+        
+        Lấy $F\in CN$:
+        $F=N+b(0;3;1)=(0;3b;1+b),\quad (0<b<2).$
+        
+        Có:
+        $\overrightarrow{EF}=F-E=(-5a;3b-6a;a+b-2) \overrightarrow{AC}=(-5;6;0).$
+        
+        Có:
+        $EF\parallel AC
+        \Leftrightarrow
+        \small \begin{cases}
+        a+b-2=0,\\
+        \dfrac{-5a}{-5}=\dfrac{3b-6a}{6}
+        \end{cases}
+        \Leftrightarrow
+        \small \begin{cases}
+        a=\dfrac{2}{5},\\
+        b=\dfrac{8}{5}.
+        \end{cases}$
+        
+        Vậy:
+        $EF=\sqrt{(-2)^2+\left(\dfrac{12}{5}\right)^2}
+        =\dfrac{2\sqrt{61}}{5}.$
+        
+        \noindent \textit{Bước 4. Tính tổng chiều dài dây và số tiền}
+        
+        $L=BM+CN+EF
+        =\sqrt{62}+2\sqrt{10}+\dfrac{2\sqrt{61}}{5}
+        \approx17,323\,\mathrm{m}.$
+        
+        Giá tiền:
+        $120000\times L\approx2\,078\,720\,\text{đồng}
+        \approx2,08\,\text{triệu đồng}.$
+
+        \noindent \underline{\textbf{Lời khuyên:}} Trong các bài toán hình học không gian liên quan đến độ dài các đoạn dây, đoạn nối hoặc khoảng cách giữa các vị trí trong một mô hình thực tế, nên lựa chọn hệ trục tọa độ sao cho các trục trùng hoặc song song với các cạnh của hình hộp. Khi đó, tọa độ của các điểm thường được xác định trực tiếp từ các kích thước đã cho. Đối với những đoạn thẳng có thêm điều kiện như song song hoặc cùng phương, có thể khai thác tọa độ và vectơ để thiết lập mối quan hệ giữa các điểm thay vì chỉ dựa vào hình học thuần túy.
+        \begin{vd} Một bể cá đầy nước có dạng hình hộp chữ nhật $ABCD.EFGH$ với $AB=6\,\mathrm{dm}$, $AD=8\,\mathrm{dm}$ và cạnh bên bằng $10\,\mathrm{dm}$. Một cá có muốn leo đoạn thẳng qua điểm $G$ đến chạm mặt đáy của hồ, rồi từ điểm đó bơi đến vị trí điểm $M$ là trung điểm của $AF$ được mô hình hóa như hình vẽ sau:
+        \begin{center}
+            \includegraphics[width=0.35 \textwidth]{Hinh17.jpg}
+        \end{center}
+        Biết rằng điểm cá đến điểm dưới đáy hồ cách $BA$ và $BC$ những đoạn bằng $a$ và $b$. Khi đó tổng $D=3a+6b$ bằng bao nhiêu?
+        \end{vd} 
+    \noindent \underline{\textbf{Nhận xét của tác giả:}}
+        Ví dụ này được lựa chọn vì xuất phát từ một tình huống thực tế về đường đi ngắn nhất trong một bể nước hình hộp chữ nhật. So với \textbf{Ví dụ 3.2.1}, khi đó ta chủ yếu tính độ dài các đoạn dây dựa trên tọa độ của các điểm, còn ở ví dụ này cần tìm vị trí của một điểm trên mặt phẳng sao cho tổng độ dài đường đi là nhỏ nhất. Bài toán qua đó minh họa rõ hơn việc kết hợp tọa độ với phép đối xứng để giải quyết bài toán cực trị về khoảng cách trong không gian.
+        
+    \noindent \underline{\textbf{Ý tưởng giải:}}
+        Chọn hệ trục tọa độ $Oxyz$ phù hợp với các cạnh của bể cá để xác định tọa độ của các điểm $A$, $G$ và $M$. Gọi $G'$ là điểm đối xứng của $G$ qua mặt phẳng $(Oxy)$. Vì điểm $I$ nằm trên $(Oxy)$ nên $IG=IG'$, do đó
+        \[
+        MI+IG=MI+IG'\geq MG'.
+        \]
+        Dấu bằng xảy ra khi $I$ là giao điểm của đoạn thẳng $MG'$ với mặt phẳng $(Oxy)$. Vì vậy, xác định giao điểm này sẽ cho vị trí $I$ để đường đi từ $M$ đến $G$ qua $I$ là ngắn nhất. Cuối cùng, dựa vào các điều kiện $IA=a$, $IB=b$ để tìm $a$ và $b$.
+        
+    \noindent \underline{\textbf{Lời giải cụ thể:}}
+    \begin{center}
+        \includegraphics[width=0.5 \textwidth]{Hinh25.jpg}
+    \end{center}
+    \noindent \textit{Bước 1. Đặt hệ trục tọa độ $Oxyz$}
+
+        Đặt hệ trục $Oxyz$ như hình vẽ với gốc tọa độ đặt tại $B$.
+        Tia $Ox$, $Oy$, $Oz$ lần lượt trùng với các tia $BA$, $BC$, $BF$.
+        
+        Khi đó, $A(6;0;0)$, $C(0;8;0)$, $F(0;10;0)$, $G(0;8;10)$.
+        
+        $M$ là trung điểm của $AF\Rightarrow M(3;0;5)$.
+        
+       \noindent \textit{Bước 2. Dùng tính đối xứng để tính đường đi ngắn nhất}
+        
+        Gọi $G'$ là điểm đối xứng của $G$ qua mặt phẳng $(Oxy)$.
+        $\Rightarrow G'(0;8;-10)$.
+        
+        Khi đó $MI+IG=MI+IG'\ge MG'$.
+        
+        Vậy đường đi ngắn nhất khi $I$ là giao điểm của $MG'$ và $(Oxy)$.
+        
+       \noindent \textit{Bước 3. Tìm tọa độ điểm $I$}
+        
+        Gọi $I(x_1;y_1;0)$. Vì $\overrightarrow{MI}\parallel\overrightarrow{MG'}$ nên
+        $\frac{x_1-3}{-3}=\frac{y_1}{8}=\frac{1}{3}
+        \Leftrightarrow
+        \small \begin{cases}
+        x_1=2,\\
+        y_1=\dfrac{8}{3}.
+        \end{cases}$
+        
+        Có $d(I,BA)=y_1=\dfrac{8}{3}$; $d(I,BC)=x_1=2$
+        $\Rightarrow 3a+6b=20$.
+
+        \noindent \underline{\textbf{Lời khuyên:}}
+    Đối với các bài toán yêu cầu tìm đường đi ngắn nhất giữa hai điểm nhưng đường đi phải đi qua một mặt phẳng hoặc một mặt phẳng chứa vị trí trung gian, có thể thử sử dụng phép đối xứng để biến đường gấp khúc thành một đoạn thẳng. Sau khi phản xạ một trong hai điểm qua mặt phẳng đó, bài toán có thể được đưa về tìm khoảng cách ngắn nhất giữa hai điểm. Đây là một cách tiếp cận trực quan và đơn giản hóa hơn việc tính toán trong không gian.
+    
+
+        
+    \begin{vd}
+    Trượt nước là một trong những trò chơi vận động được nhiều người yêu thích trong các công viên nước. Một cái máng trượt nước có thiết kế dạng cung tròn với hai đầu mút $A$ và $B$. Chọn hệ trục tọa độ $Oxyz$ với gốc tọa độ tại hình chiếu của $A$ trên mặt đất, trục $Ox$ nằm trong mặt đất và trục $Oz$ hướng thẳng đứng lên trời, đơn vị đo lấy theo mét (tham khảo hình vẽ dưới đây). Biết các điểm $A$, $B$ và một điểm $C$ nằm trên máng trượt lần lượt có tọa độ là $(0;5;0)$, $(5;0;2)$ và $(5;0;2)$. Độ dài máng trượt nước bằng bao nhiêu mét (làm tròn kết quả đến hàng đơn vị của mét)?
+    \end{vd}
+    \begin{center}
+        \includegraphics[width=0.8 \textwidth]{Hinh18.jpg}
+    \end{center}
+    \noindent \underline{\textbf{Nhận xét của tác giả:}} Ví dụ này được lựa chọn vì xuất phát từ một mô hình thực tế quen thuộc là máng trượt nước dạng cung tròn, qua đó cho thấy vectơ có thể được kết hợp với các kiến thức hình học khác để giải quyết một bài toán thực tế. Nếu ở các ví dụ trước, vectơ chủ yếu được sử dụng để tính khoảng cách hoặc tìm đường đi ngắn nhất trong không gian, thì ở ví dụ này, tích vô hướng của vectơ được sử dụng để xác định góc tạo bởi hai đoạn thẳng trong không gian. Từ góc tìm được, ta tiếp tục sử dụng các tính chất của đường tròn để xác định độ dài cung, từ đó tính chiều dài của máng trượt.
+
+    \noindent \underline{\textbf{Ý tưởng giải:}} Xem máng trượt là một cung của đường tròn ngoại tiếp tam giác $ABC$. Trước hết, sử dụng tọa độ của ba điểm $A$, $B$, $C$ để tính độ dài các cạnh của tam giác, từ đó xác định bán kính đường tròn ngoại tiếp. Tiếp theo, dùng tích vô hướng của hai vectơ $\overrightarrow{CA}$ và $\overrightarrow{CB}$ để tính góc $\widehat{ACB}$. Dựa vào mối liên hệ giữa góc nội tiếp và góc ở tâm, xác định số đo cung $AB$ chứa máng trượt. Cuối cùng, áp dụng công thức độ dài cung $l=R\theta$ để tính chiều dài máng trượt.
+
+    \noindent \underline{\textbf{Lời giải cụ thể:}}
+    
+        \noindent \textit{Bước 1. Tính bán kính $R$ đường tròn ngoại tiếp $\triangle ABC$}
+
+        Máng trượt là một cung tròn có hai đầu $A,B$ và đi qua điểm $C$.
+        
+        Độ dài máng trượt chính là độ dài cung $\widehat{ACB}$ của đường tròn ngoại tiếp $\triangle ABC$.
+        
+        Ta có:
+        $$AB=\sqrt{6^2+7^2+(1-5)^2}=\sqrt{101}\,(\mathrm{m}),$$
+        $$AC=\sqrt{5^2+0^2+(2-5)^2}=\sqrt{34}\,(\mathrm{m}),$$
+        $$BC=\sqrt{(5-6)^2+7^2+(2-1)^2}=\sqrt{51}\,(\mathrm{m}).$$
+        
+        Khi đó: $S=\sqrt{p(p-a)(p-b)(p-c)}
+        =\displaystyle \frac{\sqrt{1670}}{2}\,(\mathrm{m}^2)
+        =\frac{abc}{4R}.$
+        
+        Suy ra bán kính $R$ của đường tròn ngoại tiếp $\triangle ABC$ là:
+        $R=\displaystyle \frac{abc}{4S}
+        =\frac{\sqrt{175005}}{1670}\,(\mathrm{m}).$
+        
+        \noindent \textit{Bước 2. Tính góc nội tiếp chắn dây $AB$}
+        
+        Ta có $\overrightarrow{CA}=(-5;0;3)$, $\overrightarrow{CB}=(1;7;-1)$.
+        
+        Khi đó:
+        $\cos\widehat{ACB}
+        =\cos(\overrightarrow{CA},\overrightarrow{CB})
+        =\displaystyle \frac{\overrightarrow{CA}\cdot\overrightarrow{CB}}
+        {|\overrightarrow{CA}|\cdot|\overrightarrow{CB}|}
+        =\frac{(-5)+0+(-3)}
+        {\sqrt{34}\cdot\sqrt{51}}
+        =-\frac{8}{17\sqrt{6}}.$
+        
+        $\Rightarrow \widehat{ACB}\approx1,76\,(\mathrm{rad}).$
+        
+        \noindent \textit{Bước 3. Tính độ dài cung cần tìm}
+        
+        Cung $\widehat{AB}$ không chứa $C$ chắn bởi góc $\widehat{ACB}$.
+        
+        Suy ra cung $\widehat{ACB}$ bởi dây $AB$ có số đo bằng $2\pi-2\widehat{ACB}$.
+        
+        Vậy độ dài máng trượt bằng
+        $l=R(2\pi-2\widehat{ACB})\approx14\,(\mathrm{m}).$
+    
+   
+\end{document}
+
+    

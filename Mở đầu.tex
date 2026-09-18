@@ -1,0 +1,259 @@
+\documentclass[12pt,a4paper,oneside]{book}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath, amsthm, amssymb,latexsym,amscd,amsfonts,enumerate,titlesec,titletoc}
+\usepackage[top=3.0cm, bottom=3.0cm, left=3.5cm, right=2.0cm]{geometry}
+% căn lề theo quy chuẩn KLTN
+\usepackage{color, fancyhdr, graphicx, wrapfig}
+\usepackage[unicode]{hyperref}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{array}
+\usetikzlibrary{calc}
+%\newtheorem{example}{Ví dụ}[section]
+\def\chaptertitlename{\fontsize{14pt}{14pt}\selectfont{CHƯƠNG}}
+\titleformat{\chapter}[display]
+{\vspace{-2cm}\normalfont\Large\filcenter\bfseries}
+{{{\chaptertitlename\,}\thechapter}} {0pc}{{}\MakeUppercase}
+\theoremstyle{theorem}
+\newtheorem{theorem}{Định lý}[section]
+\theoremstyle{definition}
+\newtheorem{theorem2}{Định nghĩa}[section]
+\newtheorem{dn}[theorem2]{Định nghĩa}
+\newtheorem{nx}[theorem2]{Nhận xét}
+\newtheorem{vd}[theorem2]{Ví dụ}
+\newtheorem{md}[theorem2]{Mệnh đề}
+\newtheorem{tc}[theorem2]{Tính chất}
+\newtheorem{bd}[theorem2]{Bổ đề} 
+\newtheorem{dl}[theorem2]{Định lý}
+\newtheorem{bt}[theorem2]{Bài toán}
+\newtheorem{hq}[theorem2]{Hệ quả}
+\newtheorem{cy}[theorem2]{Chú ý}
+%\newtheorem{example}{Ví dụ}[section]
+%\newtheorem{proposition}{Mệnh đề}[section]
+%\newtheorem{definition}[proposition]{Định nghĩa}
+%\newtheorem{remark}[proposition]{Nhận xét}
+%\newtheorem{theorem}[proposition]{Định lý}
+%\newtheorem{example}[proposition]{Ví dụ}
+%\newtheorem{corollary}[proposition]{Hệ quả}
+%\newtheorem{lemma}[proposition]{Bổ đề}
+\newtheorem{Theorem}{Theorem}[section]
+\newtheorem{Proposition}[Theorem]{Proposition}
+\newtheorem{Remark}[Theorem]{Remark}
+\newtheorem{Lemma}[Theorem]{Lemma}
+\newtheorem{Corollary}[Theorem]{Corollary}
+\newtheorem{Definition}[Theorem]{Definition}
+\newtheorem{Example}[Theorem]{Example}
+\newcommand{\br}[1]{\left(#1\right)} %ngoặc tròn
+\newcommand{\brb}[1]{\left\{#1\right\}} %ngoặc nhọn, tập hợp
+\newcommand{\brc}[1]{\left[#1\right]} %ngoặc vuông
+\newcommand{\bao}[1]{\left<#1\right>} 
+\newcommand{\tri}[1]{\left|#1\right|}
+\newcommand{\flo}[1]{ \left \lfloor #1 \right \rfloor}
+\newtheorem*{case1}{Trường hợp 1}
+\newtheorem*{case2}{Trường hợp 2}
+\newtheorem*{case3}{Trường hợp 3}
+\newcommand{\aut}[1]{\mbox{Aut}\br{#1}}
+\newcommand{\gal}[1]{\mbox{Gal}\br{#1}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+
+
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\normalsize
+\pagestyle{fancy}
+\makeatletter
+\renewcommand{\ps@plain}{
+	\renewcommand{\@oddfoot}{\textrm{\centerline{\thepage}}}
+	\renewcommand{\@evenfoot}{\@oddfoot}
+	\renewcommand{\@oddhead}{}
+	\renewcommand{\@evenhead}{\@oddhead}}
+\pagestyle{plain}
+
+%%%%%%%%%%%%%%%%%
+\begin{document}
+	\fontsize{13pt}{18pt}\selectfont % Lệnh thay đổi cỡ chữ thành cỡ 14, cỡ dòng 18 (theo quy chuẩn của Khóa Luận TN).
+	\setlength{\baselineskip}{26truept}
+	%\fontsize{13pt}{14pt}\selectfont
+	\pagenumbering{arabic}
+	%\pagenumbering{roman}
+	%\frontmatter
+	\pagestyle{empty}
+	\begin{titlepage}
+		\begin{tikzpicture}[remember picture,overlay,inner sep=0,outer sep=0]
+			\draw[black,line width=3pt] ([xshift=-1.5cm,yshift=-2cm]current page.north east) coordinate (A)--([xshift=2.5cm,yshift=-2cm]current page.north west) coordinate(B)--([xshift=2.5cm,yshift=2cm]current page.south west) coordinate (C)--([xshift=-1.5cm,yshift=2cm]current page.south east) coordinate(D)--cycle;
+			
+			\draw[black,line width=1pt] ([xshift=-1.7cm,yshift=-2.2cm]current page.north east) coordinate (A)--([xshift=2.7cm,yshift=-2.2cm]current page.north west) coordinate(B)--([xshift=2.7cm,yshift=2.2cm]current page.south west) coordinate (C)--([xshift=-1.7cm,yshift=2.2cm]current page.south east) coordinate(D)--cycle;
+			
+		\end{tikzpicture}
+		\begin{center}
+			\vspace{-1cm}\textbf{TRƯỜNG ĐẠI HỌC SƯ PHẠM HUẾ}
+			
+			\vspace{7pt}
+			\bf\underline{KHOA TOÁN HỌC}
+		\end{center}
+		\vspace{10pt}
+        \begin{center}
+        \includegraphics[width=0.4\textwidth]{Hinh.jpg}
+        \end{center}
+		\begin{center}
+			\vspace{2cm}
+			\fontsize{14pt}{13pt}\selectfont 
+			\textbf{TIỂU LUẬN TÍCH HỢP CNTT TRONG DẠY HỌC TOÁN } 
+			
+			\vspace{16pt}
+			
+		\end{center}
+		\vspace{2cm}
+		\begin{center}
+			\fontsize{18pt}{17pt}\selectfont 
+			\hspace{-0.2 cm}\bf\fontsize{17pt}{19}\selectfont VECTƠ TRONG CÁC BÀI TOÁN THỰC TẾ
+		\end{center}	
+		
+		\vspace{2cm}
+		\hspace{-0.7 cm} \begin{tabular}{cc}{\fontsize{13pt}{16}\selectfont Giảng viên hướng dẫn}&\hspace{1.5cm}{\fontsize{13pt}{16}\selectfont Sinh viên thực hiện}\\
+		\hspace{-0.7 cm}	{\bf\fontsize{13pt}{16}\selectfont TS NGUYỄN ĐĂNG MINH PHÚC}&\hspace{1.5cm}{\bf\fontsize{13pt}{16}\selectfont ĐƯỜNG TIỂU QUYÊN}\\ 
+			&\hspace{1.5cm}{\bf\fontsize{13pt}{16}\selectfont MSSV: 23S1010033}
+		\end{tabular}
+		\vfill
+		\centerline {\bf Huế, 09/2026}
+	\end{titlepage}
+	
+	
+	
+	\fontsize{13pt}{18pt}\selectfont % Lệnh thay đổi cỡ chữ thành cỡ 14, cỡ dòng 18 (theo quy chuẩn của Khóa Luận TN).
+	\setlength{\baselineskip}{26truept}
+	%\fontsize{13pt}{14pt}\selectfont
+	\pagenumbering{arabic}
+	%\pagenumbering{roman}
+	%\frontmatter
+	\pagestyle{empty}
+	
+	
+	\begin{titlepage}
+		\centerline{ \bf TRƯỜNG ĐẠI HỌC SƯ PHẠM}
+		\centerline{\bf\underline{KHOA TOÁN HỌC}}
+		%\centerline{\bf KHOA TOÁN }
+		\vspace*{3.0cm}
+		\vspace*{3cm}
+		\begin{center}
+			\fontsize{18pt}{17pt}\selectfont 
+			\bf\fontsize{17pt}{19}\selectfont VECTƠ TRONG CÁC BÀI TOÁN THỰC TẾ
+		\end{center}	
+		\vspace*{1cm}
+		
+		\vspace*{2.5cm}
+		
+		\centerline{\bf\fontsize{15pt}{16}\selectfont  TIỂU LUẬN TÍCH HỢP CNTT TRONG DẠY HỌC TOÁN}
+		\vspace*{1cm}
+		
+		\center{ Cán bộ hướng dẫn khoa học} 
+		\centerline{\bf\fontsize{14pt}{16}\selectfont {TS NGUYỄN ĐĂNG MINH PHÚC}}
+		
+		%\hspace{8cm}\parbox{7cm}{}
+		%\vspace*{2.5cm}
+		\vfill
+		
+		\centerline{\bf Huế, 09/2026}
+	\end{titlepage}
+	\newpage
+	\newpage
+	
+	
+	%\setcounter{page}{3}
+	%%%%%%%%%%%%%%%%%%%%%%%
+	%\pagenumbering{roman}
+	\markboth{{\it Mục lục}}{{\it Mục lục}}
+	%\addcontentsline{toc}{section}{{\bf Mục lục\rm }}
+	%\cleardoublepage
+	
+	%{\protect\thispagestyle{empty}}
+	%%%%%%%%%%%%%%
+	%\include{Loicamdoan}
+	%\pagenumbering{arabic}
+	% \pagestyle{headings}
+	\newpage
+	\newpage
+	\def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
+		\if@mainmatter
+		\refstepcounter{chapter}%
+		\typeout{\@chapapp\space\thechapter.}%
+		\addcontentsline{toc}{chapter}%
+		{\bf  Chương \protect\numberline{\thechapter. } #1}%
+		\else
+		\addcontentsline{toc}{chapter}{ #1}%
+		\fi
+		\else
+		\addcontentsline{toc}{chapter}{ #1}%
+		\fi
+		\chaptermark{#1}%
+		\addtocontents{lof}{\protect\addvspace{10\p@}}%
+		\addtocontents{lot}{\protect\addvspace{10\p@}}%
+		\if@twocolumn
+		\@topnewpage[\@makechapterhead{#2}]%
+		\else
+		\@makechapterhead{#2}%
+		\@afterheading
+		\fi}
+	%\setcounter{page}{3}
+	%%%%%%%%%%%%%%%%%%%%%%%
+	%\pagenumbering{roman}
+	\markboth{{\it Mục lục}}{{\it Mục lục}}
+	\tableofcontents
+	% Đây này
+	\pagestyle{plain}
+	\chapter*{LỜI CẢM ƠN}
+	\fontsize{13pt}{22pt} \selectfont
+Trước hết, tác giả xin bày tỏ sự trân trọng đối với Thầy Nguyễn Đăng Minh Phúc, người đã trực tiếp hướng dẫn, tận tình chỉ bảo và định hướng nghiên cứu trong suốt quá trình thực hiện tiểu luận với đề tài “Vectơ trong các bài toán thực tế”. Những ý kiến chuyên môn và sự hỗ trợ của Thầy là cơ sở quan trọng giúp tác giả hoàn thành bài tiểu luận này.
+
+Trong quá trình thực hiện, tác giả cũng nhận được sự quan tâm, hỗ trợ từ các thầy cô trong khoa Toán cùng sự đồng hành của các bạn sinh viên. Sự đóng góp ý kiến và tạo điều kiện thuận lợi từ tập thể đã góp phần giúp hoàn thiện nội dung tiểu luận.
+
+Do hạn chế về thời gian và kinh nghiệm, bài tiểu luận khó tránh khỏi những thiếu sót. Rất mong nhận được những ý kiến góp ý của quý thầy giáo, cô giáo, và các bạn. Xin chân thành cám ơn!
+	
+	\begin{flushright}
+		Huế, tháng 09 năm 2026
+		
+		\textit{Người thực hiện.}
+	\end{flushright}
+	
+	
+	
+	\addcontentsline{toc}{chapter}{LỜI CẢM ƠN}
+	
+	
+	%\chapter*{\huge MỞ ĐẦU}
+	%\addcontentsline{toc}{chapter}{MỞ ĐẦU}
+	\chapter*{MỞ ĐẦU}
+	\addcontentsline{toc}{chapter}{MỞ ĐẦU}
+
+        Vectơ là một trong những khái niệm cơ bản và quan trọng của hình học, đồng thời có vai trò thiết yếu trong việc mô tả các đại lượng có hướng. Từ những kiến thức về vectơ trong mặt phẳng, vectơ trong không gian đến biểu diễn vectơ bằng tọa độ, các phép toán vectơ cung cấp một công cụ hữu hiệu để mô hình hóa và giải quyết nhiều bài toán hình học cũng như các vấn đề xuất hiện trong thực tiễn.
+        
+        Trong chương trình Toán phổ thông, vectơ không chỉ được nghiên cứu dưới góc độ lý thuyết mà còn được vận dụng để giải quyết các bài toán gắn với những tình huống quen thuộc như xác định vị trí và khoảng cách, mô hình hóa các đối tượng trong không gian, tính toán độ dài, diện tích, thể tích hay biểu diễn và tổng hợp các lực tác dụng lên một vật. Việc đưa các tình huống thực tế vào bài toán vectơ góp phần làm rõ ý nghĩa của các khái niệm toán học, đồng thời cho thấy sự liên hệ giữa kiến thức hình học với những vấn đề trong đời sống và khoa học.
+        
+        Xuất phát từ những lý do trên, trong tiểu luận này, tôi tập trung trình bày một số kiến thức cơ bản về vectơ trong không gian và tọa độ vectơ, từ đó khai thác các kiến thức này để giải quyết một số dạng bài toán thực tế. Các ví dụ được lựa chọn theo những tình huống có tính trực quan và gần gũi, qua đó minh họa cách chuyển một vấn đề thực tế thành mô hình toán học bằng vectơ. Bên cạnh lời giải, trong mỗi ví dụ, tôi trình bày thêm lý do lựa chọn tình huống và ý tưởng giải nhằm làm rõ cách tiếp cận bài toán, cũng như vai trò của vectơ trong quá trình mô hình hóa và giải quyết vấn đề.
+        
+        Trên cơ sở tham khảo các tài liệu liên quan, tiểu luận được chia thành bốn chương với nội dung chính như sau:
+
+        \textit{Chương 1. Kiến thức chuẩn bị}
+
+        Trong chương này, tôi trình bày một số kiến thức cơ bản về vectơ trong không gian, các phép toán với vectơ, ba vectơ đồng phẳng, hệ trục tọa độ $Oxyz$ và tọa độ của điểm, tọa độ của vectơ. Bên cạnh đó, các biểu thức tọa độ của các phép toán vectơ, tọa độ trung điểm, trọng tâm và tích vô hướng cũng được trình bày nhằm làm cơ sở cho việc giải quyết các bài toán ở những chương tiếp theo.
+        
+        \textit{Chương 2. Toán thực tế xác định tọa độ điểm, tọa độ vectơ}
+        
+        Chương này tập trung vào việc vận dụng hệ tọa độ $Oxyz$ và các phép toán vectơ để mô hình hóa những tình huống thực tế liên quan đến vị trí của các đối tượng trong không gian. Một số dạng bài toán tiêu biểu được lựa chọn nhằm minh họa cách thiết lập hệ trục tọa độ, xác định tọa độ các điểm và biểu diễn các đại lượng cần tìm bằng vectơ. Đối với mỗi ví dụ, tôi trình bày lý do lựa chọn và ý tưởng giải trước khi tiến hành lời giải chi tiết.
+        
+        \textit{Chương 3. Ứng dụng vectơ tính khoảng cách trong các mô hình hình học}
+        
+        Trong chương này, tôi khai thác tích vô hướng và các biểu thức tọa độ của vectơ để giải quyết một số bài toán về khoảng cách, độ dài, diện tích và thể tích trong các mô hình hình học không gian. Các ví dụ được xây dựng từ những tình huống thực tế như trang trí không gian, chuyển động trong bể nước và mô hình hóa máng trượt. Qua đó, chương này làm rõ cách sử dụng vectơ để thiết lập mô hình và tìm ra đại lượng cần tính.
+        
+        \textit{Chương 4. Tọa độ vectơ trong bài toán tổng hợp lực}
+        
+        Chương này trình bày việc vận dụng vectơ vào các bài toán liên quan đến lực và trạng thái cân bằng của vật. Sau khi nhắc lại khái niệm hợp lực và điều kiện cân bằng lực, tôi đưa ra một số ví dụ thực tế liên quan đến lực căng của dây, hệ thống dây treo và hoạt động của cần cẩu. Thông qua các ví dụ này, cách biểu diễn lực bằng vectơ và sử dụng các thành phần của vectơ để thiết lập điều kiện cân bằng được minh họa cụ thể.
+        
+        Thông qua việc thực hiện đề tài, tôi có cơ hội củng cố các kiến thức về vectơ và tọa độ trong không gian, đồng thời rèn luyện khả năng mô hình hóa các tình huống thực tế bằng ngôn ngữ toán học. Việc lựa chọn và phân tích các ví dụ cũng giúp làm rõ hơn mối liên hệ giữa kiến thức toán học và các vấn đề thực tiễn, qua đó góp phần nâng cao khả năng vận dụng kiến thức vào giải quyết vấn đề.
+        
+	
+\end{document}
+
+    

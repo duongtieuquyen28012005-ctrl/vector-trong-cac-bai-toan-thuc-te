@@ -1,0 +1,122 @@
+\documentclass[12pt,a4paper,oneside]{book}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath, amsthm, amssymb,latexsym,amscd,amsfonts,enumerate,titlesec,titletoc}
+\usepackage[top=3.0cm, bottom=3.0cm, left=3.5cm, right=2.0cm]{geometry}
+% căn lề theo quy chuẩn KLTN
+\usepackage{color, fancyhdr, graphicx, wrapfig}
+\usepackage[unicode]{hyperref}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{array}
+\usetikzlibrary{calc}
+%\newtheorem{example}{Ví dụ}[section]
+\def\chaptertitlename{\fontsize{14pt}{14pt}\selectfont{CHƯƠNG}}
+\titleformat{\chapter}[display]
+{\vspace{-2cm}\normalfont\Large\filcenter\bfseries}
+{{{\chaptertitlename\,}\thechapter}} {0pc}{{}\MakeUppercase}
+\theoremstyle{theorem}
+\newtheorem{theorem}{Định lý}[section]
+\theoremstyle{definition}
+\newtheorem{theorem2}{Định nghĩa}[section]
+\newtheorem{dn}[theorem2]{Định nghĩa}
+\newtheorem{nx}[theorem2]{Nhận xét}
+\newtheorem{vd}[theorem2]{Ví dụ}
+\newtheorem{md}[theorem2]{Mệnh đề}
+\newtheorem{tc}[theorem2]{Tính chất}
+\newtheorem{bd}[theorem2]{Bổ đề} 
+\newtheorem{dl}[theorem2]{Định lý}
+\newtheorem{bt}[theorem2]{Bài toán}
+\newtheorem{hq}[theorem2]{Hệ quả}
+\newtheorem{cy}[theorem2]{Chú ý}
+%\newtheorem{example}{Ví dụ}[section]
+%\newtheorem{proposition}{Mệnh đề}[section]
+%\newtheorem{definition}[proposition]{Định nghĩa}
+%\newtheorem{remark}[proposition]{Nhận xét}
+%\newtheorem{theorem}[proposition]{Định lý}
+%\newtheorem{example}[proposition]{Ví dụ}
+%\newtheorem{corollary}[proposition]{Hệ quả}
+%\newtheorem{lemma}[proposition]{Bổ đề}
+\newtheorem{Theorem}{Theorem}[section]
+\newtheorem{Proposition}[Theorem]{Proposition}
+\newtheorem{Remark}[Theorem]{Remark}
+\newtheorem{Lemma}[Theorem]{Lemma}
+\newtheorem{Corollary}[Theorem]{Corollary}
+\newtheorem{Definition}[Theorem]{Definition}
+\newtheorem{Example}[Theorem]{Example}
+\newcommand{\br}[1]{\left(#1\right)} %ngoặc tròn
+\newcommand{\brb}[1]{\left\{#1\right\}} %ngoặc nhọn, tập hợp
+\newcommand{\brc}[1]{\left[#1\right]} %ngoặc vuông
+\newcommand{\bao}[1]{\left<#1\right>} 
+\newcommand{\tri}[1]{\left|#1\right|}
+\newcommand{\flo}[1]{ \left \lfloor #1 \right \rfloor}
+\newtheorem*{case1}{Trường hợp 1}
+\newtheorem*{case2}{Trường hợp 2}
+\newtheorem*{case3}{Trường hợp 3}
+\newcommand{\aut}[1]{\mbox{Aut}\br{#1}}
+\newcommand{\gal}[1]{\mbox{Gal}\br{#1}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+
+
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\normalsize
+\pagestyle{fancy}
+\makeatletter
+\renewcommand{\ps@plain}{
+	\renewcommand{\@oddfoot}{\textrm{\centerline{\thepage}}}
+	\renewcommand{\@evenfoot}{\@oddfoot}
+	\renewcommand{\@oddhead}{}
+	\renewcommand{\@evenhead}{\@oddhead}}
+\pagestyle{plain}
+
+%%%%%%%%%%%%%%%%%
+\begin{document}
+	\fontsize{13pt}{18pt}\selectfont % Lệnh thay đổi cỡ chữ thành cỡ 14, cỡ dòng 18 (theo quy chuẩn của Khóa Luận TN).
+	\setlength{\baselineskip}{26truept}
+	%\fontsize{13pt}{14pt}\selectfont
+	\pagenumbering{arabic}
+	%\pagenumbering{roman}
+	%\frontmatter
+	\pagestyle{empty}
+
+              
+    \chapter*{KẾT LUẬN}
+
+
+        Tiểu luận này tập trung tìm hiểu và vận dụng vectơ trong việc giải quyết một số bài toán thực tế. Trước hết, tôi hệ thống lại những kiến thức cơ bản về vectơ trong không gian, hệ trục tọa độ $Oxyz$, tọa độ điểm, tọa độ vectơ và các phép toán vectơ cần thiết làm cơ sở cho việc nghiên cứu các nội dung tiếp theo.
+        
+        Trên nền tảng đó, tiểu luận trình bày một số dạng toán thực tế liên quan đến việc xác định tọa độ điểm, tọa độ vectơ và tính toán các đại lượng hình học trong không gian. Bên cạnh đó, tích vô hướng và các biểu thức tọa độ của vectơ được vận dụng để giải quyết các bài toán về khoảng cách, độ dài, diện tích và thể tích trong những mô hình hình học cụ thể. Cuối cùng, vectơ được sử dụng để biểu diễn các lực và thiết lập điều kiện cân bằng trong một số tình huống thực tế liên quan đến lực căng của dây và tổng hợp lực.
+        
+        Các ví dụ trong tiểu luận được lựa chọn từ những tình huống có nội dung gần gũi với thực tế như chuyển động của vật, xác định vị trí các đối tượng trong không gian, trang trí không gian, máng trượt nước, hệ thống dây treo và hoạt động của cần cẩu. Đối với mỗi ví dụ, việc trình bày lý do lựa chọn và ý tưởng giải trước khi thực hiện lời giải giúp làm rõ quá trình chuyển từ tình huống thực tế sang mô hình toán học, đồng thời cho thấy vai trò của vectơ trong việc giải quyết vấn đề.
+        
+        Thông qua việc thực hiện đề tài, tôi có cơ hội củng cố các kiến thức về vectơ và tọa độ trong không gian, đồng thời rèn luyện khả năng phân tích, mô hình hóa và trình bày lời giải đối với các bài toán gắn với thực tiễn. Qua đó, tôi nhận thấy vectơ không chỉ là một công cụ hình học mà còn có thể được vận dụng linh hoạt để mô tả vị trí, khoảng cách và các đại lượng có hướng trong nhiều tình huống khác nhau.
+        
+        Do thời gian thực hiện và kiến thức còn hạn chế, tiểu luận khó tránh khỏi những thiếu sót. Tôi rất mong nhận được những ý kiến đóng góp của quý thầy cô và các bạn để nội dung tiểu luận được hoàn thiện hơn.
+
+
+    \addcontentsline{toc}{chapter}{KẾT LUẬN}
+
+    \chapter*{\underline{TÀI LIỆU THAM KHẢO}}
+    \addcontentsline{toc}{chapter}{TÀI LIỆU THAM KHẢO}
+    \noindent [1] Đỗ Đức Thái (Tổng Chủ biên kiêm Chủ biên), Phạm Xuân Chung, Nguyễn Sơn Hà, Nguyễn Thị Phương Loan, Phạm Sỹ Nam, Phạm Minh Phương (2024), \textit{Toán 12, Tập 1 (Cánh Diều)}, Nhà xuất bản Đại học Sư phạm.
+
+    \noindent [2] Trần Nam Dũng (Tổng Chủ biên), Trần Đức Huyên, Nguyễn Thành Anh (đồng Chủ biên), Vũ Như Thư Hương, Ngô Hoàng Long, Phạm Hoàng Quân, Phạm Thị Thu Thủy (2024), \textit{Toán 12, Tập 1 (Chân trời sáng tạo)}, Nhà xuất bản Giáo dục Việt Nam.
+    
+    \noindent [3] Hà Huy Khoái (Tổng Chủ biên), Cung Thế Anh, Trần Văn Tấn, Đặng Hùng Thắng (đồng Chủ biên), Lê Văn Cường, Trần Mạnh Cường, Nguyễn Đạt Đăng, Lê Văn Hiện, Phan Thanh Hồng, Trần Đình Kế, Phạm Anh Minh, Nguyễn Thị Kim Sơn (2024), \textit{Toán 12, Tập 1 (Kết nối tri thức với cuộc sống)}, Nhà xuất bản Giáo dục Việt Nam.
+    
+    \noindent [4] Đỗ Đức Thái (Tổng Chủ biên kiêm Chủ biên), Phạm Xuân Chung, Nguyễn Sơn Hà, Nguyễn Thị Phương Loan, Phạm Sỹ Nam, Phạm Minh Phương (2024), \textit{Bài tập Toán 12, Tập 1 (Cánh Diều)}, Nhà xuất bản Đại học Sư phạm.
+    
+    \noindent [5] Trần Đức Huyên, Nguyễn Thành Anh (đồng Chủ biên), Vũ Như Thư Hương, Ngô Hoàng Long, Phạm Hoàng Quân, Phạm Thị Thu Thủy (2024), \textit{Bài tập Toán 12, Tập 1 (Chân trời sáng tạo)}, Nhà xuất bản Giáo dục Việt Nam.
+    
+    \noindent [6] Cung Thế Anh, Trần Văn Tấn, Trần Mạnh Cường, Đặng Hùng Thắng, Lê Văn Cường, Nguyễn Đạt Đăng, Lê Văn Hiện, Trần Đình Kế, Phạm Anh Minh, Nguyễn Thị Kim Sơn (2024), \textit{Bài tập Toán 12, Tập 1 (Kết nối tri thức với cuộc sống)}, Nhà xuất bản Giáo dục Việt Nam.
+    
+    \noindent [7] Đỗ Văn Đức, \textit{Hành trình chinh phục thực tế}, Nhà xuất bản Văn hóa Dân tộc.
+
+    \noindent [8] Đỗ Văn Đức (2025), \textit{Hành trình chinh phục Toán 12, Tập 1}, Nhà xuất bản Văn hóa Dân tộc.
+
+        
+\end{document}
+
+    

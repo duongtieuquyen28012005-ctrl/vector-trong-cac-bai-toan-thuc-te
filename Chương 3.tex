@@ -1,0 +1,279 @@
+\documentclass[12pt,a4paper,oneside]{book}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath, amsthm, amssymb,latexsym,amscd,amsfonts,enumerate,titlesec,titletoc}
+\usepackage[top=3.0cm, bottom=3.0cm, left=3.5cm, right=2.0cm]{geometry}
+% căn lề theo quy chuẩn KLTN
+\usepackage{color, fancyhdr, graphicx, wrapfig}
+\usepackage[unicode]{hyperref}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{array}
+\usetikzlibrary{calc}
+%\newtheorem{example}{Ví dụ}[section]
+\def\chaptertitlename{\fontsize{14pt}{14pt}\selectfont{CHƯƠNG}}
+\titleformat{\chapter}[display]
+{\vspace{-2cm}\normalfont\Large\filcenter\bfseries}
+{{{\chaptertitlename\,}\thechapter}} {0pc}{{}\MakeUppercase}
+\theoremstyle{theorem}
+\newtheorem{theorem}{Định lý}[section]
+\theoremstyle{definition}
+\newtheorem{theorem2}{Định nghĩa}[section]
+\newtheorem{dn}[theorem2]{Định nghĩa}
+\newtheorem{nx}[theorem2]{Nhận xét}
+\newtheorem{vd}[theorem2]{Ví dụ}
+\newtheorem{md}[theorem2]{Mệnh đề}
+\newtheorem{tc}[theorem2]{Tính chất}
+\newtheorem{bd}[theorem2]{Bổ đề} 
+\newtheorem{dl}[theorem2]{Định lý}
+\newtheorem{bt}[theorem2]{Bài toán}
+\newtheorem{hq}[theorem2]{Hệ quả}
+\newtheorem{cy}[theorem2]{Chú ý}
+%\newtheorem{example}{Ví dụ}[section]
+%\newtheorem{proposition}{Mệnh đề}[section]
+%\newtheorem{definition}[proposition]{Định nghĩa}
+%\newtheorem{remark}[proposition]{Nhận xét}
+%\newtheorem{theorem}[proposition]{Định lý}
+%\newtheorem{example}[proposition]{Ví dụ}
+%\newtheorem{corollary}[proposition]{Hệ quả}
+%\newtheorem{lemma}[proposition]{Bổ đề}
+\newtheorem{Theorem}{Theorem}[section]
+\newtheorem{Proposition}[Theorem]{Proposition}
+\newtheorem{Remark}[Theorem]{Remark}
+\newtheorem{Lemma}[Theorem]{Lemma}
+\newtheorem{Corollary}[Theorem]{Corollary}
+\newtheorem{Definition}[Theorem]{Definition}
+\newtheorem{Example}[Theorem]{Example}
+\newcommand{\br}[1]{\left(#1\right)} %ngoặc tròn
+\newcommand{\brb}[1]{\left\{#1\right\}} %ngoặc nhọn, tập hợp
+\newcommand{\brc}[1]{\left[#1\right]} %ngoặc vuông
+\newcommand{\bao}[1]{\left<#1\right>} 
+\newcommand{\tri}[1]{\left|#1\right|}
+\newcommand{\flo}[1]{ \left \lfloor #1 \right \rfloor}
+\newtheorem*{case1}{Trường hợp 1}
+\newtheorem*{case2}{Trường hợp 2}
+\newtheorem*{case3}{Trường hợp 3}
+\newcommand{\aut}[1]{\mbox{Aut}\br{#1}}
+\newcommand{\gal}[1]{\mbox{Gal}\br{#1}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+
+
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\normalsize
+\pagestyle{fancy}
+\makeatletter
+\renewcommand{\ps@plain}{
+	\renewcommand{\@oddfoot}{\textrm{\centerline{\thepage}}}
+	\renewcommand{\@evenfoot}{\@oddfoot}
+	\renewcommand{\@oddhead}{}
+	\renewcommand{\@evenhead}{\@oddhead}}
+\pagestyle{plain}
+
+%%%%%%%%%%%%%%%%%
+\begin{document}
+	\fontsize{13pt}{18pt}\selectfont % Lệnh thay đổi cỡ chữ thành cỡ 14, cỡ dòng 18 (theo quy chuẩn của Khóa Luận TN).
+	\setlength{\baselineskip}{26truept}
+	%\fontsize{13pt}{14pt}\selectfont
+	\pagenumbering{arabic}
+	%\pagenumbering{roman}
+	%\frontmatter
+	\pagestyle{empty}
+
+    \chapter{TOẠ ĐỘ VECTƠ BÀI TOÁN TỔNG HỢP LỰC}
+    \section{Một số điểm lý thuyết quan trọng}
+        \begin{dn} \textbf{(Hợp lực)} Mỗi lực tác động lên vật được biểu diễn bởi một vectơ lực. Hợp lực $\vec{F}$ của các lực $\vec{F}_1, \vec{F}_2, \ldots, \vec{F}_n$ là một vectơ duy nhất thỏa mãn:
+        \[
+        \vec{F} = \vec{F}_1 + \vec{F}_2 + \cdots + \vec{F}_n.
+        \]
+    \end{dn}
+    \begin{dn} \textbf{(Cân bằng lực)}
+        \begin{itemize}
+            \item Nguyên tắc chung: Vật đứng yên (cân bằng) khi hợp lực bằng vectơ không:
+            \[
+            \vec{F} = \vec{0}.
+            \]
+        
+            \item Chiếu phương trình cân bằng $\vec{F}=\vec{0}$ lên hai trục $Ox$ và $Oy$: 
+            \begin{itemize}
+                \item $\sum F_{xi}=0$ (tổng hợp chiếu lực lên trục $Ox$ bằng $0$),
+                \item $\sum F_{yi}=0$ (tổng hợp chiếu lực lên trục $Oy$ bằng $0$).
+            \end{itemize}
+            \item Minh họa. Một vật treo bởi hai sợi dây tạo với phương ngang các góc $\alpha,\beta$, chịu tác dụng của trọng lực $\vec{P}$ thẳng đứng xuống.
+             \begin{center}
+                \includegraphics[width=0.8 \textwidth]{Hinh19.jpg}
+            \end{center}
+        \end{itemize}
+        
+            Khi cân bằng, ta chiếu các lực lên từng trục, lập hệ
+            \[
+            \small \begin{cases}
+            F_1\cos\alpha = F_2\cos\beta,\\
+            F_1\sin\alpha + F_2\sin\beta = P.
+            \end{cases}
+            \]
+        \end{dn}
+    \section{Một số ví dụ điển hình và ý tưởng giải}
+    \begin{vd}
+        Trong chuyến cắm trại, túi đồ ăn có trọng lượng $P=120\,\mathrm{N}$ được treo cân bằng bởi hai dây buộc vào hai cây ở hai bên. Dây trái tạo với phương ngang một góc $\alpha=30^\circ$ với phương ngang, dây phải tạo một góc $\beta=60^\circ$ so với phương ngang (như hình). Gọi lực căng trong hai dây lần lượt là $\vec{F}_1,\vec{F}_2$ (đều hướng lên dọc theo dây). Tính tổng lực hai dây $F_1+F_2$. (Đơn vị: N) (Kết quả làm tròn đến hàng đơn vị).
+         \begin{center}
+                \includegraphics[width=0.5 \textwidth]{Hinh20.jpg}
+        \end{center}
+    \end{vd}
+    \noindent \underline{\textbf{Nhận xét của tác giả:}} Ví dụ này được lựa chọn vì mô tả một tình huống thực tế quen thuộc trong đó một vật chịu tác dụng đồng thời của nhiều lực. Hai dây treo tạo ra hai lực căng có phương khác nhau, trong khi trọng lực hướng thẳng đứng xuống dưới. Đây là một mô hình trực quan minh họa cách biểu diễn các lực bằng vectơ và sử dụng điều kiện cân bằng lực để xác định các đại lượng chưa biết. Qua ví dụ, có thể thấy các lực trong thực tế được chuyển thành các vectơ và được phân tích theo các phương thích hợp để thuận tiện cho việc tính toán.
+
+    \noindent \underline{\textbf{Ý tưởng giải:}} Biểu diễn lực căng của hai dây và trọng lực bằng các vectơ, sau đó chiếu phương trình cân bằng lực lên phương ngang và phương thẳng đứng. Từ phương ngang, thiết lập mối quan hệ giữa hai lực căng thông qua các góc $\alpha$ và $\beta$. Tiếp theo, sử dụng phương trình cân bằng theo phương thẳng đứng cùng với trọng lượng $P$ để xác định độ lớn của từng lực căng. Cuối cùng, tính tổng $F_1+F_2$ theo yêu cầu của bài toán.
+
+    \noindent \underline{\textbf{Lời giải cụ thể:}}
+    \noindent \textit{Bước 1. Phân tích dữ kiện}
+        
+        Dây trái tạo với phương ngang góc $\alpha=30^\circ$, lực căng $F_1$.
+        
+        Dây phải tạo với phương ngang góc $\beta=60^\circ$, lực căng $F_2$.
+        
+        Trọng lượng túi: $P=120\,\mathrm{N}$, hệ cân bằng.
+        
+    \noindent \textit{Bước 2. Cân bằng lực}
+        
+        Cân bằng lực theo phương ngang:
+        
+        $F_1\cos\alpha=F_2\cos\beta
+        \Leftrightarrow F_1\cos30^\circ=F_2\cos60^ \circ \Rightarrow F_2=\dfrac{\cos30^\circ}{\cos60^\circ}F_1=\sqrt{3}F_1.$
+        
+        Cân bằng lực theo phương thẳng đứng:
+        $$P=F_1\sin\alpha+F_2\sin\beta.$$
+        
+    \noindent \textit{Bước 3. Tính tổng lực}
+        
+        Thay $P=120\,\mathrm{N}$, ta có:
+        $$120=F_1\sin30^\circ+\sqrt{3}F_1\sin60^\circ
+        \Rightarrow F_1=60\,\mathrm{N} \Rightarrow F_2=60\sqrt{3}\,(\mathrm{N}).$$
+        
+        Tổng lực căng $F_1+F_2=60+60\sqrt{3}\approx164\,\mathrm{N}.$
+
+    \noindent \underline{\textbf{Lời khuyên:}} Khi giải các bài toán thực tế về cân bằng lực, nên xác định đầy đủ các lực tác dụng lên vật và chú ý đến phương, chiều của từng lực. Với các lực không cùng phương, có thể phân tích mỗi lực thành các thành phần theo những trục tọa độ phù hợp, sau đó sử dụng điều kiện tổng các thành phần theo mỗi phương bằng $0$. Đặc biệt, cần phân biệt rõ góc mà lực tạo với phương ngang hoặc phương thẳng đứng để sử dụng đúng các thành phần $\sin$ và $\cos$.
+    \begin{vd}
+        Cân đòn là dụng cụ đo khối lượng ở Việt Nam đầu những năm 1990 trở về trước. Đĩa cân được treo bởi ba sợi xích xuất phát từ điểm $S$ trên đầu móc của cân và lần lượt móc vào ba điểm $A$, $B$, $C$ trên đĩa cân sao cho $\triangle ABC$ đều (xem hình minh họa). Độ dài của ba đoạn xích $SA$, $SB$, $SC$ đều bằng $60\,\mathrm{cm}$. Biết khối lượng của vật đặt trên đĩa cân là $8{,}8\,\mathrm{kg}$, đĩa cân có khối lượng $0{,}2\,\mathrm{kg}$ và miệng đĩa cân là đường tròn có bán kính $20\,\mathrm{cm}$.
+        \begin{center}
+                \includegraphics[width=0.4 \textwidth]{Hinh21.jpg}
+        \end{center}
+        Độ lớn của các lực căng trên mỗi sợi xích bằng bao nhiêu Newton? (làm tròn kết quả đến hàng phần mười). Biết $\vec{P}=m\vec{g}$, trong đó $\vec{g}$ là vectơ gia tốc rơi tự do có độ lớn $10\,\mathrm{m/s^2}$, $m$ là khối lượng của vật có đơn vị kg.
+    \end{vd}
+    \noindent \underline{\textbf{Nhận xét của tác giả:}}
+    Ví dụ này được lựa chọn vì mô tả một dụng cụ quen thuộc trong đời sống và cho thấy rõ vai trò của lực căng trong hệ thống dây treo. Khác với \textbf{Ví dụ 4.2.1}, trong đó vật được giữ bởi hai dây và các lực được phân tích theo hai phương, ở ví dụ này đĩa cân được treo bởi ba sợi xích có vị trí đối xứng. Sự đối xứng của hệ thống cho phép các lực căng có cùng độ lớn và hợp lực của chúng có phương thẳng đứng, từ đó bài toán trở nên thuận tiện hơn khi sử dụng điều kiện cân bằng lực.
+    
+    \noindent \underline{\textbf{Ý tưởng giải:}}
+    Trước hết, xác định tổng trọng lượng của vật và đĩa cân. Do ba điểm $A$, $B$, $C$ là các đỉnh của một tam giác đều và ba sợi xích có độ dài bằng nhau nên hệ thống có tính đối xứng, vì vậy ba lực căng có cùng độ lớn. Xác định góc mà mỗi sợi xích tạo với phương thẳng đứng dựa vào bán kính đường tròn ngoại tiếp tam giác đều $ABC$ và độ dài sợi xích. Sau đó, chiếu một lực căng lên phương thẳng đứng và sử dụng điều kiện cân bằng lực theo phương này để tính độ lớn của lực căng trên mỗi sợi xích.
+
+    \noindent \underline{\textbf{Lời giải cụ thể:}}
+    
+    \noindent \textit{Bước 1. Trọng lượng cần giữ}
+
+    Khối lượng toàn bộ: $m=8,8+0,2=9\,\mathrm{kg}$.
+    
+    Lấy $g=10\,\mathrm{m/s^2}\Rightarrow$ trọng lượng $P=m\cdot g=9\cdot10=90\,\mathrm{N}$.
+    
+    \noindent \textit{Bước 2. Độ lớn các lực căng}
+    
+    $SA=SB=SC=60\,\mathrm{cm}$ và $A,B,C$ là các đỉnh của tam giác đều trên vành đĩa tròn (bán kính $R=20\,\mathrm{cm}$).
+    
+    Tâm $O$ của đĩa là tâm tam giác đều $ABC$ đồng thời là hình chiếu mặt phẳng đĩa của $I$.
+    
+    Khi đó lực căng trên ba dây bằng nhau: $F_A=F_B=F_C=F$.
+    
+    Các lực căng tạo với chiều thẳng đứng góc $\alpha$ như hình.
+    
+    \noindent \textit{Bước 3. Góc nghiêng của dây}
+    
+    Xét $\triangle SAO$ vuông tại $O$ có $OA=R=20\,\mathrm{cm}$, $SA=60\,\mathrm{cm}$.
+    
+    Gọi $\alpha$ là góc giữa dây và phương thẳng đứng. Khi đó
+    $$
+    \sin\alpha=\frac{OA}{SA}=\frac{20}{60}=\frac{1}{3}
+    \Rightarrow \cos\alpha=\sqrt{1-\sin^2\alpha}
+    =\frac{2\sqrt{2}}{3}.
+    $$
+    
+    \noindent \textit{Bước 4. Cân bằng lực}
+    
+    Theo phương thẳng đứng ta có:
+    $$
+    P=3F\cos\alpha
+    \Leftrightarrow
+    F=\frac{P}{3\cos\alpha}
+    =\displaystyle \frac{90}{3\cdot\displaystyle\frac{2\sqrt{2}}{3}}
+    =\frac{45}{\sqrt{2}}
+    \approx31,8\,\mathrm{N}.
+    $$
+   
+    \noindent \underline{\textbf{Lời khuyên:}}
+Trong các bài toán cân bằng lực có nhiều dây hoặc sợi xích được bố trí đối xứng, nên kiểm tra tính đối xứng của hệ thống trước khi phân tích lực. Khi các lực căng có cùng độ lớn và các thành phần theo phương ngang triệt tiêu từng đôi một, hợp lực của chúng chỉ còn thành phần theo phương thẳng đứng. Khi đó, có thể chỉ cần xét phương thẳng đứng để thiết lập phương trình cân bằng, giúp giảm đáng kể số lượng phép tính.
+    \begin{vd}
+        Một chiếc ô tô được đặt trên mặt đáy dưới của một khung sắt có dạng hình hộp chữ nhật với đáy trên là hình chữ nhật $ABCD$, mặt phẳng $(ABCD)$ song song với mặt phẳng nằm ngang. Khung sắt được buộc bởi một đầu móc $E$ của chiếc cần cẩu sao cho các đoạn dây cáp $EA,EB,EC,ED$ có độ dài bằng nhau và cùng tạo với mặt phẳng $(ABCD)$ một góc bằng $60^\circ$ (hình vẽ).
+         \begin{center}
+                \includegraphics[width=0.4 \textwidth]{Hinh22.jpg}
+        \end{center}
+        Chiếc cần cẩu kéo khung sắt lên theo phương thẳng đứng. Trọng lượng của chiếc xe ô tô bằng bao nhiêu Newton? (làm tròn đến hàng đơn vị), biết rằng các lực căng $\vec{F}_1,\vec{F}_2,\vec{F}_3,\vec{F}_4$ đều có cường độ là $3500\,\mathrm{N}$ và trọng lượng của khung sắt là $2500\,\mathrm{N}$.
+        \end{vd}
+        \noindent \underline{\textbf{Nhận xét của tác giả:}}
+        Ví dụ này được lựa chọn vì mô tả một tình huống thực tế trong hoạt động nâng vật bằng cần cẩu, trong đó nhiều lực căng của các dây cáp cùng tác dụng lên một hệ thống. Nếu ở \textbf{Ví dụ 4.2.1}, ta xét sự cân bằng của một vật được treo bởi hai dây, còn ở \textbf{Ví dụ 4.2.2} khai thác tính đối xứng của ba dây xích, thì ví dụ này mở rộng mô hình lên bốn dây cáp được bố trí đối xứng trong không gian. Đặc biệt, bài toán không chỉ yêu cầu xác định lực căng mà còn sử dụng hợp lực của bốn lực căng để xác định trọng lượng của ô tô. Qua đó, ví dụ minh họa rõ hơn vai trò của phép cộng vectơ và tính đối xứng trong các bài toán tổng hợp lực.
+        
+        \noindent \underline{\textbf{Ý tưởng giải:}}
+        Khai thác tính đối xứng của hình chữ nhật $ABCD$ và hệ thống bốn dây cáp để biểu diễn các lực căng $\vec{F}_1,\vec{F}_2,\vec{F}_3,\vec{F}_4$ theo các vectơ đơn vị cùng phương với các dây cáp. Do các dây cáp có cùng độ dài và cùng tạo với mặt phẳng $(ABCD)$ một góc $60^\circ$, bốn lực căng có cùng độ lớn và các thành phần nằm trong mặt phẳng $(ABCD)$ triệt tiêu nhau. Vì vậy, hợp lực của bốn lực căng có phương thẳng đứng. Tính độ lớn hợp lực này, sau đó sử dụng điều kiện cân bằng của khung cùng với trọng lượng của khung để xác định trọng lượng của chiếc ô tô.
+
+        \noindent \underline{\textbf{Lời giải cụ thể:}}
+
+            \noindent \textit{Bước 1. Mô hình và ký hiệu}
+            
+            Mặt phẳng $(ABCD)$ nằm ngang, $E$ ở trên.
+            
+            Bốn dây căng $AE,BE,CE,DE$ cùng độ dài và tạo với mặt phẳng $(ABCD)$ góc $60^\circ$.
+            
+            Lực căng trên mỗi dây:
+            $|\vec{F}_1|=|\vec{F}_2|=|\vec{F}_3|=|\vec{F}_4|=3500\,\mathrm{N}$.
+            
+            Trọng lượng lồng chim và xe: $P_1=2500\,\mathrm{N}$, trọng lượng của xe $P$.
+            
+            Gọi $O$ là hình chiếu của $E$ xuống mặt phẳng $(ABCD)\Rightarrow O$ là tâm của $ABCD$.
+            
+    \noindent \textit{Bước 2. Điều kiện}
+            
+            Vì các lực được theo dây nên tổng $\vec{F}_1+\vec{F}_2+\vec{F}_3+\vec{F}_4$ thỏa mãn
+            $$
+            \vec{F}_1=k\vec{EA},\quad
+            \vec{F}_2=k\vec{EB},\quad
+            \vec{F}_3=k\vec{EC},\quad
+            \vec{F}_4=k\vec{ED}
+            $$
+            $$
+            \Rightarrow
+            \vec{F}_1+\vec{F}_2+\vec{F}_3+\vec{F}_4
+            =k(\vec{EA}+\vec{EB}+\vec{EC}+\vec{ED})
+            =k\cdot4\vec{EO}.
+            $$
+            Mà $|\vec{F}_i|=3500\,\mathrm{N}\Rightarrow k\cdot EA=3500$.
+            
+            Ta có $EA\sin60^\circ=EO$ nên
+            $$
+            |\vec{F}_1+\vec{F}_2+\vec{F}_3+\vec{F}_4|
+            =4\cdot3500\sin60^\circ
+            =7000\sqrt{3}\,\mathrm{N}.
+            $$
+            
+        \noindent \textit{Bước 3. Cân bằng lực theo phương thẳng đứng}
+            
+            Khi cầu treo lên, tổng bốn lực có hướng xuống đáy dây bằng tổng trọng lượng xe và khung:
+            $$
+            |\vec{F}_1+\vec{F}_2+\vec{F}_3+\vec{F}_4|
+            =P+P_1.
+            $$
+            Vậy trọng lượng của chiếc xe ô tô bằng
+            $ P=7000\sqrt{3}-2500\approx9624\,\mathrm{N}.$
+
+        \noindent \underline{\textbf{Lời khuyên:}} Trong các bài toán tổng hợp lực có nhiều dây cáp hoặc dây treo được bố trí đối xứng, nên tận dụng tính đối xứng trước khi thực hiện các phép tính vectơ. Thay vì tính riêng toàn bộ các thành phần của từng lực, có thể nhận ra rằng các thành phần nằm ngang triệt tiêu nhau, trong khi các thành phần theo phương thẳng đứng cùng chiều và tạo thành hợp lực. Ngoài ra, cần xác định rõ hệ vật đang xét để không bỏ sót các lực tác dụng lên hệ; trong bài toán này, cần xét cả trọng lượng của khung sắt và trọng lượng của chiếc ô tô.
+              
+   
+\end{document}
+
+    

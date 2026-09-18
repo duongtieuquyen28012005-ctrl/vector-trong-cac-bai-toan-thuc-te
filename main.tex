@@ -1,0 +1,1167 @@
+\documentclass[12pt,a4paper,oneside]{book}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath, amsthm, amssymb,latexsym,amscd,amsfonts,enumerate,titlesec,titletoc}
+\usepackage[top=3.0cm, bottom=3.0cm, left=3.5cm, right=2.0cm]{geometry}
+% căn lề theo quy chuẩn KLTN
+\usepackage{color, fancyhdr, graphicx, wrapfig}
+\usepackage[unicode]{hyperref}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{array}
+\usetikzlibrary{calc}
+%\newtheorem{example}{Ví dụ}[section]
+\def\chaptertitlename{\fontsize{14pt}{14pt}\selectfont{CHƯƠNG}}
+\titleformat{\chapter}[display]
+{\vspace{-2cm}\normalfont\Large\filcenter\bfseries}
+{{{\chaptertitlename\,}\thechapter}} {0pc}{{}\MakeUppercase}
+\theoremstyle{theorem}
+\newtheorem{theorem}{Định lý}[section]
+\theoremstyle{definition}
+\newtheorem{theorem2}{Định nghĩa}[section]
+\newtheorem{dn}[theorem2]{Định nghĩa}
+\newtheorem{nx}[theorem2]{Nhận xét}
+\newtheorem{vd}[theorem2]{Ví dụ}
+\newtheorem{md}[theorem2]{Mệnh đề}
+\newtheorem{tc}[theorem2]{Tính chất}
+\newtheorem{bd}[theorem2]{Bổ đề} 
+\newtheorem{dl}[theorem2]{Định lý}
+\newtheorem{bt}[theorem2]{Bài toán}
+\newtheorem{hq}[theorem2]{Hệ quả}
+\newtheorem{cy}[theorem2]{Chú ý}
+%\newtheorem{example}{Ví dụ}[section]
+%\newtheorem{proposition}{Mệnh đề}[section]
+%\newtheorem{definition}[proposition]{Định nghĩa}
+%\newtheorem{remark}[proposition]{Nhận xét}
+%\newtheorem{theorem}[proposition]{Định lý}
+%\newtheorem{example}[proposition]{Ví dụ}
+%\newtheorem{corollary}[proposition]{Hệ quả}
+%\newtheorem{lemma}[proposition]{Bổ đề}
+\newtheorem{Theorem}{Theorem}[section]
+\newtheorem{Proposition}[Theorem]{Proposition}
+\newtheorem{Remark}[Theorem]{Remark}
+\newtheorem{Lemma}[Theorem]{Lemma}
+\newtheorem{Corollary}[Theorem]{Corollary}
+\newtheorem{Definition}[Theorem]{Definition}
+\newtheorem{Example}[Theorem]{Example}
+\newcommand{\br}[1]{\left(#1\right)} %ngoặc tròn
+\newcommand{\brb}[1]{\left\{#1\right\}} %ngoặc nhọn, tập hợp
+\newcommand{\brc}[1]{\left[#1\right]} %ngoặc vuông
+\newcommand{\bao}[1]{\left<#1\right>} 
+\newcommand{\tri}[1]{\left|#1\right|}
+\newcommand{\flo}[1]{ \left \lfloor #1 \right \rfloor}
+\newtheorem*{case1}{Trường hợp 1}
+\newtheorem*{case2}{Trường hợp 2}
+\newtheorem*{case3}{Trường hợp 3}
+\newcommand{\aut}[1]{\mbox{Aut}\br{#1}}
+\newcommand{\gal}[1]{\mbox{Gal}\br{#1}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+
+
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\normalsize
+\pagestyle{fancy}
+\makeatletter
+\renewcommand{\ps@plain}{
+	\renewcommand{\@oddfoot}{\textrm{\centerline{\thepage}}}
+	\renewcommand{\@evenfoot}{\@oddfoot}
+	\renewcommand{\@oddhead}{}
+	\renewcommand{\@evenhead}{\@oddhead}}
+\pagestyle{plain}
+
+%%%%%%%%%%%%%%%%%
+\begin{document}
+	\fontsize{13pt}{18pt}\selectfont % Lệnh thay đổi cỡ chữ thành cỡ 14, cỡ dòng 18 (theo quy chuẩn của Khóa Luận TN).
+	\setlength{\baselineskip}{26truept}
+	%\fontsize{13pt}{14pt}\selectfont
+	\pagenumbering{arabic}
+	%\pagenumbering{roman}
+	%\frontmatter
+	\pagestyle{empty}
+	\begin{titlepage}
+		\begin{tikzpicture}[remember picture,overlay,inner sep=0,outer sep=0]
+			\draw[black,line width=3pt] ([xshift=-1.5cm,yshift=-2cm]current page.north east) coordinate (A)--([xshift=2.5cm,yshift=-2cm]current page.north west) coordinate(B)--([xshift=2.5cm,yshift=2cm]current page.south west) coordinate (C)--([xshift=-1.5cm,yshift=2cm]current page.south east) coordinate(D)--cycle;
+			
+			\draw[black,line width=1pt] ([xshift=-1.7cm,yshift=-2.2cm]current page.north east) coordinate (A)--([xshift=2.7cm,yshift=-2.2cm]current page.north west) coordinate(B)--([xshift=2.7cm,yshift=2.2cm]current page.south west) coordinate (C)--([xshift=-1.7cm,yshift=2.2cm]current page.south east) coordinate(D)--cycle;
+			
+		\end{tikzpicture}
+		\begin{center}
+			\vspace{-1cm}\textbf{TRƯỜNG ĐẠI HỌC SƯ PHẠM HUẾ}
+			
+			\vspace{7pt}
+			\bf\underline{KHOA TOÁN HỌC}
+		\end{center}
+		\vspace{10pt}
+        \begin{center}
+        \includegraphics[width=0.4\textwidth]{Hinh.jpg}
+        \end{center}
+		\begin{center}
+			\vspace{2cm}
+			\fontsize{14pt}{13pt}\selectfont 
+			\textbf{TIỂU LUẬN TÍCH HỢP CNTT TRONG DẠY HỌC TOÁN } 
+			
+			\vspace{16pt}
+			
+		\end{center}
+		\vspace{2cm}
+		\begin{center}
+			\fontsize{18pt}{17pt}\selectfont 
+			\hspace{-0.2 cm}\bf\fontsize{17pt}{19}\selectfont VECTƠ TRONG CÁC BÀI TOÁN THỰC TẾ
+		\end{center}	
+		
+		\vspace{2cm}
+		\hspace{-0.7 cm} \begin{tabular}{cc}{\fontsize{13pt}{16}\selectfont Giảng viên hướng dẫn}&\hspace{1.5cm}{\fontsize{13pt}{16}\selectfont Sinh viên thực hiện}\\
+		\hspace{-0.7 cm}	{\bf\fontsize{13pt}{16}\selectfont TS NGUYỄN ĐĂNG MINH PHÚC}&\hspace{1.5cm}{\bf\fontsize{13pt}{16}\selectfont ĐƯỜNG TIỂU QUYÊN}\\ 
+			&\hspace{1.5cm}{\bf\fontsize{13pt}{16}\selectfont MSSV: 23S1010033}
+		\end{tabular}
+		\vfill
+		\centerline {\bf Huế, 09/2026}
+	\end{titlepage}
+	
+	
+	
+	\fontsize{13pt}{18pt}\selectfont % Lệnh thay đổi cỡ chữ thành cỡ 14, cỡ dòng 18 (theo quy chuẩn của Khóa Luận TN).
+	\setlength{\baselineskip}{26truept}
+	%\fontsize{13pt}{14pt}\selectfont
+	\pagenumbering{arabic}
+	%\pagenumbering{roman}
+	%\frontmatter
+	\pagestyle{empty}
+	
+	
+	\begin{titlepage}
+		\centerline{ \bf TRƯỜNG ĐẠI HỌC SƯ PHẠM}
+		\centerline{\bf\underline{KHOA TOÁN HỌC}}
+		%\centerline{\bf KHOA TOÁN }
+		\vspace*{3.0cm}
+		\vspace*{3cm}
+		\begin{center}
+			\fontsize{18pt}{17pt}\selectfont 
+			\bf\fontsize{17pt}{19}\selectfont VECTƠ TRONG CÁC BÀI TOÁN THỰC TẾ
+		\end{center}	
+		\vspace*{1cm}
+		
+		\vspace*{2.5cm}
+		
+		\centerline{\bf\fontsize{15pt}{16}\selectfont  TIỂU LUẬN TÍCH HỢP CNTT TRONG DẠY HỌC TOÁN}
+		\vspace*{1cm}
+		
+		\center{ Cán bộ hướng dẫn khoa học} 
+		\centerline{\bf\fontsize{14pt}{16}\selectfont {TS NGUYỄN ĐĂNG MINH PHÚC}}
+		
+		%\hspace{8cm}\parbox{7cm}{}
+		%\vspace*{2.5cm}
+		\vfill
+		
+		\centerline{\bf Huế, 09/2026}
+	\end{titlepage}
+	\newpage
+	\newpage
+	
+	
+	%\setcounter{page}{3}
+	%%%%%%%%%%%%%%%%%%%%%%%
+	%\pagenumbering{roman}
+	\markboth{{\it Mục lục}}{{\it Mục lục}}
+	%\addcontentsline{toc}{section}{{\bf Mục lục\rm }}
+	%\cleardoublepage
+	
+	%{\protect\thispagestyle{empty}}
+	%%%%%%%%%%%%%%
+	%\include{Loicamdoan}
+	%\pagenumbering{arabic}
+	% \pagestyle{headings}
+	\newpage
+	\newpage
+	\def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
+		\if@mainmatter
+		\refstepcounter{chapter}%
+		\typeout{\@chapapp\space\thechapter.}%
+		\addcontentsline{toc}{chapter}%
+		{\bf  Chương \protect\numberline{\thechapter. } #1}%
+		\else
+		\addcontentsline{toc}{chapter}{ #1}%
+		\fi
+		\else
+		\addcontentsline{toc}{chapter}{ #1}%
+		\fi
+		\chaptermark{#1}%
+		\addtocontents{lof}{\protect\addvspace{10\p@}}%
+		\addtocontents{lot}{\protect\addvspace{10\p@}}%
+		\if@twocolumn
+		\@topnewpage[\@makechapterhead{#2}]%
+		\else
+		\@makechapterhead{#2}%
+		\@afterheading
+		\fi}
+	%\setcounter{page}{3}
+	%%%%%%%%%%%%%%%%%%%%%%%
+	%\pagenumbering{roman}
+	\markboth{{\it Mục lục}}{{\it Mục lục}}
+	\tableofcontents
+	% Đây này
+	\pagestyle{plain}
+	\chapter*{LỜI CẢM ƠN}
+	\fontsize{13pt}{22pt} \selectfont
+Trước hết, tác giả xin bày tỏ sự trân trọng đối với Thầy Nguyễn Đăng Minh Phúc, người đã trực tiếp hướng dẫn, tận tình chỉ bảo và định hướng nghiên cứu trong suốt quá trình thực hiện tiểu luận với đề tài “Vectơ trong các bài toán thực tế”. Những ý kiến chuyên môn và sự hỗ trợ của Thầy là cơ sở quan trọng giúp tác giả hoàn thành bài tiểu luận này.
+
+Trong quá trình thực hiện, tác giả cũng nhận được sự quan tâm, hỗ trợ từ các thầy cô trong khoa Toán cùng sự đồng hành của các bạn sinh viên. Sự đóng góp ý kiến và tạo điều kiện thuận lợi từ tập thể đã góp phần giúp hoàn thiện nội dung tiểu luận.
+
+Do hạn chế về thời gian và kinh nghiệm, bài tiểu luận khó tránh khỏi những thiếu sót. Rất mong nhận được những ý kiến góp ý của quý thầy giáo, cô giáo, và các bạn. Xin chân thành cám ơn!
+	
+	\begin{flushright}
+		Huế, tháng 09 năm 2026
+		
+		\textit{Người thực hiện.}
+	\end{flushright}
+	
+	
+	
+	\addcontentsline{toc}{chapter}{LỜI CẢM ƠN}
+	
+	
+	%\chapter*{\huge MỞ ĐẦU}
+	%\addcontentsline{toc}{chapter}{MỞ ĐẦU}
+	\chapter*{MỞ ĐẦU}
+	\addcontentsline{toc}{chapter}{MỞ ĐẦU}
+
+        Vectơ là một trong những khái niệm cơ bản và quan trọng của hình học, đồng thời có vai trò thiết yếu trong việc mô tả các đại lượng có hướng. Từ những kiến thức về vectơ trong mặt phẳng, vectơ trong không gian đến biểu diễn vectơ bằng tọa độ, các phép toán vectơ cung cấp một công cụ hữu hiệu để mô hình hóa và giải quyết nhiều bài toán hình học cũng như các vấn đề xuất hiện trong thực tiễn.
+        
+        Trong chương trình Toán phổ thông, vectơ không chỉ được nghiên cứu dưới góc độ lý thuyết mà còn được vận dụng để giải quyết các bài toán gắn với những tình huống quen thuộc như xác định vị trí và khoảng cách, mô hình hóa các đối tượng trong không gian, tính toán độ dài, diện tích, thể tích hay biểu diễn và tổng hợp các lực tác dụng lên một vật. Việc đưa các tình huống thực tế vào bài toán vectơ góp phần làm rõ ý nghĩa của các khái niệm toán học, đồng thời cho thấy sự liên hệ giữa kiến thức hình học với những vấn đề trong đời sống và khoa học.
+        
+        Xuất phát từ những lý do trên, trong tiểu luận này, tôi tập trung trình bày một số kiến thức cơ bản về vectơ trong không gian và tọa độ vectơ, từ đó khai thác các kiến thức này để giải quyết một số dạng bài toán thực tế. Các ví dụ được lựa chọn theo những tình huống có tính trực quan và gần gũi, qua đó minh họa cách chuyển một vấn đề thực tế thành mô hình toán học bằng vectơ. Bên cạnh lời giải, trong mỗi ví dụ, tôi trình bày thêm lý do lựa chọn tình huống và ý tưởng giải nhằm làm rõ cách tiếp cận bài toán, cũng như vai trò của vectơ trong quá trình mô hình hóa và giải quyết vấn đề.
+        
+        Trên cơ sở tham khảo các tài liệu liên quan, tiểu luận được chia thành bốn chương với nội dung chính như sau:
+
+        \textit{Chương 1. Kiến thức chuẩn bị}
+
+        Trong chương này, tôi trình bày một số kiến thức cơ bản về vectơ trong không gian, các phép toán với vectơ, ba vectơ đồng phẳng, hệ trục tọa độ $Oxyz$ và tọa độ của điểm, tọa độ của vectơ. Bên cạnh đó, các biểu thức tọa độ của các phép toán vectơ, tọa độ trung điểm, trọng tâm và tích vô hướng cũng được trình bày nhằm làm cơ sở cho việc giải quyết các bài toán ở những chương tiếp theo.
+        
+        \textit{Chương 2. Toán thực tế xác định tọa độ điểm, tọa độ vectơ}
+        
+        Chương này tập trung vào việc vận dụng hệ tọa độ $Oxyz$ và các phép toán vectơ để mô hình hóa những tình huống thực tế liên quan đến vị trí của các đối tượng trong không gian. Một số dạng bài toán tiêu biểu được lựa chọn nhằm minh họa cách thiết lập hệ trục tọa độ, xác định tọa độ các điểm và biểu diễn các đại lượng cần tìm bằng vectơ. Đối với mỗi ví dụ, tôi trình bày lý do lựa chọn và ý tưởng giải trước khi tiến hành lời giải chi tiết.
+        
+        \textit{Chương 3. Ứng dụng vectơ tính khoảng cách trong các mô hình hình học}
+        
+        Trong chương này, tôi khai thác tích vô hướng và các biểu thức tọa độ của vectơ để giải quyết một số bài toán về khoảng cách, độ dài, diện tích và thể tích trong các mô hình hình học không gian. Các ví dụ được xây dựng từ những tình huống thực tế như trang trí không gian, chuyển động trong bể nước và mô hình hóa máng trượt. Qua đó, chương này làm rõ cách sử dụng vectơ để thiết lập mô hình và tìm ra đại lượng cần tính.
+        
+        \textit{Chương 4. Tọa độ vectơ trong bài toán tổng hợp lực}
+        
+        Chương này trình bày việc vận dụng vectơ vào các bài toán liên quan đến lực và trạng thái cân bằng của vật. Sau khi nhắc lại khái niệm hợp lực và điều kiện cân bằng lực, tôi đưa ra một số ví dụ thực tế liên quan đến lực căng của dây, hệ thống dây treo và hoạt động của cần cẩu. Thông qua các ví dụ này, cách biểu diễn lực bằng vectơ và sử dụng các thành phần của vectơ để thiết lập điều kiện cân bằng được minh họa cụ thể.
+        
+        Thông qua việc thực hiện đề tài, tôi có cơ hội củng cố các kiến thức về vectơ và tọa độ trong không gian, đồng thời rèn luyện khả năng mô hình hóa các tình huống thực tế bằng ngôn ngữ toán học. Việc lựa chọn và phân tích các ví dụ cũng giúp làm rõ hơn mối liên hệ giữa kiến thức toán học và các vấn đề thực tiễn, qua đó góp phần nâng cao khả năng vận dụng kiến thức vào giải quyết vấn đề.
+        
+	%Phần 1%
+	
+	
+	
+\chapter{KIẾN THỨC CHUẨN BỊ}
+  % NHớ viết vô chương này ......
+\section{Vectơ trong không gian}
+    \subsection{Vectơ trong không gian}
+        \begin{dn}
+                Vectơ trong không gian là một đoạn thẳng có hướng.
+        \end{dn}
+        \begin{center}
+            \includegraphics[width=0.33\textwidth]{Hinh3.jpg}
+        \end{center}
+        \begin{cy}
+            \begin{itemize}
+                \item Kí hiệu $\overrightarrow{AB}$ chỉ vectơ có điểm đầu $A$, điểm cuối $B$.
+                 \item Nếu không cần chỉ rõ điểm đầu và điểm cuối thì vectơ còn được kí hiệu là $\vec{u}, \vec{v}, \vec{x}, \vec{y}, \ldots$
+             \end{itemize}
+        \end{cy}
+       
+        %%%%%%%%%%%%VẼ HÌNHHHHHHHHHHHHHHHH
+        \begin{dn}
+            Các khái niệm có liên quan đến vectơ trong không gian như: giá của vectơ, độ dài của vectơ, vectơ cùng phương, vectơ cùng hướng, vectơ-không, hai vectơ bằng nhau, hai vectơ đối nhau,... được định nghĩa tương tự như trong mặt phẳng.
+        \end{dn}
+        \begin{vd}
+            Cho tứ diện $ABCD$, trong hình vẽ biểu diễn các vectơ có điểm đầu là $A$ và điểm cuối là các đỉnh $B,C,D$
+            \begin{center}
+                \includegraphics[width=0.33 \textwidth]{Hinh4.jpg}
+            \end{center}
+            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HÌNHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+        \end{vd}
+
+    \subsection{Các phép toán với vectơ trong không gian}
+    \begin{itemize}
+        \item[\textbf{a)}] \textbf{Tổng và hiệu của hai vectơ trong không gian}
+        \begin{dn}
+            Trong không gian, cho hai vectơ $\vec{a}, \vec{b}$. Lấy một điểm $A$ tùy ý, vẽ $\overrightarrow{OA} = \vec{a}$, $\overrightarrow{AB} = \vec{b}$. Vectơ $\overrightarrow{OB}$ được gọi là tổng của hai vectơ $\vec{a}$ và $\vec{b}$, kí hiệu là $\overrightarrow{OB} = \vec{a} + \vec{b}$.
+        \end{dn}
+        \begin{nx}
+            Đối với vectơ trong không gian, ta cũng có các quy tắc sau:
+            \begin{itemize}
+                \item Đối với ba điểm $A,B,C$ trong không gian, ta có: $\overrightarrow{AB}+\overrightarrow{BC}=\overrightarrow{AC}$ (Quy tắc ba điểm).
+                \item Nếu $ABCD$ là hình bình hành thì $\overrightarrow{AB}+\overrightarrow{AD}= \overrightarrow{AC}$.
+                \begin{center}
+                    \includegraphics[width=0.6\textwidth]{Hinh5.jpg}
+                \end{center}
+                \item Nếu $ABCD.A'B'C'D'$ là hình hộp thì $\overrightarrow{AB}+\overrightarrow{AD}+\overrightarrow{AA'}=\overrightarrow{AC'}$ (Quy tắc hình hộp).
+                \begin{center}
+                    \includegraphics[width=0.3\textwidth]{Hinh6.jpg}
+                \end{center}
+            \end{itemize}
+        \end{nx}
+        \begin{dn}
+            Trong không gian, cho hai vectơ $\vec{a}, \vec{b}$. Hiệu của vectơ $\vec{a}$ và vectơ $\vec{b}$ là tổng của vectơ $\vec{a}$ và vectơ đối của vectơ $\vec{b}$, kí hiệu là $\vec{a} - \vec{b}$.
+        \end{dn}
+        \begin{nx}
+            Với ba điểm $O, A, B$ trong không gian, ta có $\overrightarrow{OA} - \overrightarrow{OB} = \overrightarrow{BA}$ (quy tắc hiệu).
+        \end{nx}
+         \item[\textbf{b)}] \textbf{Tích của một với một vectơ}
+         \begin{dn}
+             Cho số thực $k \ne 0$ và vectơ $\vec{a} \ne \vec{0}$. Tích của số $k$ với vectơ $\vec{a}$ là một vectơ, kí hiệu là $k\vec{a}$, được xác định như sau:
+        \end{dn}
+        \begin{itemize}
+            \item Cùng hướng với vectơ $\vec{a}$ nếu $k > 0$, ngược hướng với vectơ $\vec{a}$ nếu $k < 0$;
+            \item Có độ dài bằng $|k|\cdot|\vec{a}|$.
+        \end{itemize}
+        \begin{nx}
+            Quy ước: $0\vec{a} = \vec{0}$, $k\vec{0} = \vec{0}$. Do đó, $k\vec{a} = \vec{0}$ khi và chỉ khi $k = 0$ hoặc $\vec{a} = \vec{0}$.
+        \end{nx}
+        \item[\textbf{c)}] \textbf{Tích vô hướng của hai vectơ} 
+        \begin{dn}
+            Trong không gian, cho hai vectơ $\vec{u}, \vec{v}$ khác $\vec{0}$. Lấy một điểm $A$ tùy ý và vẽ hai vectơ $\overrightarrow{AB} = \vec{u}$, $\overrightarrow{AC} = \vec{v}$. Góc giữa hai vectơ $\vec{u}, \vec{v}$ trong không gian, kí hiệu $(\vec{u},\vec{v})$, là góc giữa hai vectơ $\overrightarrow{AB},\overrightarrow{AC}$.
+            \begin{center}
+            \includegraphics[width=0.4\textwidth]{Hinh7.jpg}
+             \end{center}
+        \end{dn}
+        \begin{cy}
+          $0^\circ \leq (\vec{u},\vec{v}) \leq 180^\circ$.
+        \end{cy} 
+       
+        Trong trường hợp tổng quát, ta có định nghĩa sau:
+        \begin{dn}
+            Trong không gian, cho hai vectơ $\vec{a},\vec{b}$ khác $\vec{0}$. Tích vô hướng của hai vectơ $\vec{a}$ và $\vec{b}$, kí hiệu
+            $\vec{a}\cdot\vec{b}$, là một số thực được xác định bởi công thức:
+            $\vec{a}\cdot\vec{b}=|\vec{a}|\,|\vec{b}|\cos(\vec{a},\vec{b})$, ở đó $(\vec{a},\vec{b})$ là góc giữa hai vectơ $\vec{a},\vec{b}$.
+        \end{dn}
+        \begin{nx}
+            Tích vô hướng của một vectơ với vectơ $\vec{0}$ bằng $0$.
+        \end{nx}
+        \begin{cy}
+            Với các vectơ bất kì $\vec{a}, \vec{b}, \vec{c}$ và số thực $k$ tùy ý, ta có:
+            \begin{itemize}
+                \item $\vec{a}\vec{b} = \vec{b}\vec{a}$ (tính chất giao hoán);
+                \item $\vec{a}(\vec{b}+\vec{c}) = \vec{a}\vec{b}+\vec{a}\vec{c}$ (tính chất phân phối);
+                \item $(k\vec{a})\cdot\vec{b} = k(\vec{a}\cdot\vec{b}) = \vec{a}\cdot(k\vec{b})$;
+                \item $(\vec{a})^{\,2} \geq 0,\quad (\vec{a})^{\,2}=0 \Leftrightarrow \vec{a}=\vec{0}$.
+                \item Nếu $\vec{a},\vec{b}$ là hai vectơ khác $\vec{0}$ thì $\cos(\vec{a},\vec{b})=\dfrac{\vec{a}\cdot\vec{b}}{|\vec{a}|\cdot|\vec{b}|}$.
+            \end{itemize}
+        \end{cy}
+        \end{itemize}
+    \subsection{Ba vectơ đồng phẳng}
+    \begin{dn}
+        Trong không gian, ba vectơ được gọi là đồng phẳng nếu các giá của chúng cùng song song với một mặt phẳng.
+    \end{dn}
+    \begin{nx}
+        Người ta cũng chứng minh được một số điều kiện sau đây để ba vectơ trong không gian là đồng phẳng:
+        \begin{itemize}
+            \item Trong không gian, cho hai vectơ $\vec{a},\vec{b}$ không cùng phương và vectơ $\vec{c}$. Khi đó, ba vectơ $\vec{a},\vec{b},\vec{c}$ đồng phẳng khi và chỉ khi có cặp số $m,n$ sao cho $\vec{c}=m\vec{a}+n\vec{b}$. Ngoài ra cặp số $m,n$ là duy nhất.
+            \item Trong không gian, cho ba vectơ $\vec{a},\vec{b},\vec{c}$ đều khác vectơ-không. Từ điểm $O$ trong không gian, ta vẽ $\overrightarrow{OA}=\vec{a},\overrightarrow{OB}=\vec{b},\overrightarrow{OC}=\vec{c}$. Khi đó, ba vectơ $\vec{a},\vec{b},\vec{c}$ đồng phẳng khi và chỉ khi bốn điểm $O,A,B,C$ cùng thuộc một mặt phẳng.
+        \end{itemize}
+        \begin{vd}
+            Cho hình hộp $ABCD.A'B'C'D'$ và các điểm $M,N,P,Q,E,G$ như hình vẽ. Nếu $PQ \parallel AD$ và $EG \parallel DC$ thì $\overrightarrow{MN},\overrightarrow{PQ}$ và $\overrightarrow{EG}$ đồng phẳng, vì giá của chúng cùng song song với mặt phẳng $(ABCD)$.
+        \end{vd}
+        \begin{center}
+            \includegraphics[width=0.35 \textwidth]{Hinh8.jpg}
+        \end{center}
+    \end{nx}
+    \section{Hệ trục toạ độ Oxyz, toạ độ vectơ}
+    \subsection{Hệ trục toạ độ trong không gian}
+    \begin{center}
+            \includegraphics[width=0.6 \textwidth]{Hinh9.jpg}
+    \end{center}
+    \begin{dn}
+        Hệ gồm ba trục $Ox, Oy, Oz$ đôi một vuông góc được gọi là hệ trục tọa độ vuông góc $Oxyz$ trong không gian hay đơn giản là hệ tọa độ $Oxyz$.
+    \end{dn}
+    \begin{cy}
+        Ta gọi $\vec{i},\vec{j},\vec{k}$ lần lượt là các vectơ đơn vị trên các trục $Ox, Oy, Oz$.
+
+        \noindent Gọi tên:
+        \begin{itemize}
+            \item Điểm $O$ là gốc tọa độ;
+            \item $Ox$ là trục hoành;
+            \item $Oy$ là trục tung;
+            \item $Oz$ là trục cao;
+            \item Các mặt phẳng $(Oxy),(Oyz),(Ozx)$ là các mặt phẳng tọa độ;
+            \item Không gian với hệ tọa độ $Oxyz$ còn được gọi là không gian $Oxyz$.
+        \end{itemize}
+    \end{cy}
+    \begin{nx}
+        Các mặt phẳng tọa độ $(Oxy),(Oyz),(Ozx)$ đôi một vuông góc với nhau.
+    \end{nx}
+    \subsection{Toạ độ của một điểm}
+    \begin{dn}
+        Trong không gian $Oxyz$, cho điểm $M$. Nếu $\overrightarrow{OM}=x\vec{i}+y\vec{j}+z\vec{k}$ thì ta gọi bộ ba số $(x;y;z)$ là tọa độ của điểm $M$ đối với hệ trục tọa độ $Oxyz$ và viết $M=(x;y;z)$ hoặc $M(x;y;z)$, với $x$ là hoành độ, $y$ là tung độ và $z$ là cao độ.
+    \end{dn}
+    \begin{cy} \textbf{(Về toạ độ hình chiếu)}
+        Trong không gian $Oxyz$, cho điểm $M(x_M;y_M;z_M)$.
+        \begin{itemize}
+            \item Hình chiếu vuông góc của $M$ lên $(Oxy)$ là $M_1(x_M;y_M;0)$;
+            \item Hình chiếu vuông góc của $M$ lên $(Oyz)$ là $M_2(0;y_M;z_M)$;
+            \item Hình chiếu vuông góc của $M$ lên $(Ozx)$ là $M_3(x_M;0;z_M)$;
+            \item Hình chiếu vuông góc của $M$ lên trục $Ox$ là $M_4(x_M;0;0)$;
+            \item Hình chiếu vuông góc của $M$ lên trục $Oy$ là $M_5(0;y_M;0)$;
+            \item Hình chiếu vuông góc của $M$ lên trục $Oz$ là $M_6(0;0;z_M)$.
+        \end{itemize}
+    \end{cy}
+    \subsection{Toạ độ của một vectơ}
+    \begin{dn}
+        Tọa độ của điểm $M$ được gọi là tọa độ của vectơ $\overrightarrow{OM}$.
+        $$\overrightarrow{OM}=(a;b;c)\Leftrightarrow M(a;b;c)$$
+    \end{dn}
+    \begin{center}
+        \includegraphics[width=0.6 \textwidth]{Hinh10.jpg}
+    \end{center}
+    \begin{dn}
+        \begin{itemize}
+            \item Vectơ đơn vị $\vec{i}$ trên trục $Ox$ có tọa độ là $\vec{i}=(1;0;0)$;
+            \item Vectơ đơn vị $\vec{j}$ trên trục $Oy$ có tọa độ là $\vec{j}=(0;1;0)$;
+            \item Vectơ đơn vị $\vec{k}$ trên trục $Oz$ có tọa độ là $\vec{k}=(0;0;1)$.
+        \end{itemize}
+    \end{dn}
+    \begin{dn}
+        Trong không gian với hệ tọa độ $Oxyz$, tọa độ của một vectơ $\vec{u}$ là tọa độ của điểm $A$, trong đó $A$ là điểm sao cho $\overrightarrow{OA}=\vec{u}$.
+    \end{dn}
+    \begin{nx}
+        \begin{itemize}
+            \item Nếu $\vec{u}$ có tọa độ $(a;b;c)$ thì ta viết $\vec{u}=(a;b;c)$, trong đó $a$ gọi là hoành độ, $b$ gọi là tung độ và $c$ gọi là cao độ của vectơ $\vec{u}$.
+            \item Nếu $\vec{u}=(a;b;c)$ thì $\vec{u}=a\vec{i}+b\vec{j}+c\vec{k}$. Ngược lại, nếu $\vec{u}=a\vec{i}+b\vec{j}+c\vec{k}$ thì $\vec{u}=(a;b;c)$.
+        \end{itemize}
+    \end{nx}
+    \begin{cy}
+        Với $\vec{u}=(x_1;y_1;z_1)$ và $\vec{v}=(x_2;y_2;z_2)$, ta có:
+        $\vec{u}=\vec{v}\Leftrightarrow
+        \small \begin{cases}
+        x_1=x_2\\
+        y_1=y_2\\
+        z_1=z_2
+        \end{cases}$
+    \end{cy}
+    \begin{tc}
+        Trong không gian với hệ tọa độ $Oxyz$, cho hai điểm $A(x_A;y_A;z_A)$ và $B(x_B;y_B;z_B)$. Khi đó, $\overrightarrow{AB}=(x_B-x_A;y_B-y_A;z_B-z_A)$.
+    \end{tc}
+
+    \section{Biểu thức toạ độ các phép toán vectơ}
+    \subsection{Biểu thức tọa độ của phép cộng hai vectơ, phép trừ hai vectơ, phép nhân một số với một vectơ}
+        \begin{center}
+        \includegraphics[width=0.5\textwidth]{Hinh2..jpg}
+        \end{center}
+        \begin{tc}
+            Nếu $\vec{u}=(x_1;y_1;z_1)$ và $\vec{v}=(x_2;y_2;z_2)$ thì 
+            
+            \hspace{5cm} $\vec{u}+\vec{v}=(x_1+x_2;y_1+y_2;z_1+z_2);$ 
+            
+            \hspace{5cm} $\vec{u}-\vec{v}=(x_1-x_2;y_1-y_2;z_1-z_2);$
+            
+            \hspace{5cm} $m\vec{u}=(mx_1;my_1;mz_1),\quad \text{với }m\in\mathbb{R}.$
+        \end{tc}
+        \begin{nx}
+            Hai vectơ $\vec{u}=(x_1;y_1;z_1)$, $\vec{v}=(x_2;y_2;z_2)$ $(\vec{v}\ne\vec{0})$ cùng phương khi và chỉ khi có một số thực $m$ sao cho
+                $\small \begin{cases}
+                x_1=mx_2,\\
+                y_1=my_2,\\
+                z_1=mz_2.
+                \end{cases}.
+                $
+        \end{nx}
+    \subsection{Tọa độ trung điểm đoạn thẳng, tọa độ trọng tâm tam giác}
+    \begin{tc}
+        Cho hai điểm $A(x_A;y_A;z_A)$ và $B(x_B;y_B;z_B)$. Nếu $M(x_M;y_M;z_M)$ là trung điểm đoạn thẳng $AB$ thì
+            \[
+            x_M=\frac{x_A+x_B}{2};\quad y_M=\frac{y_A+y_B}{2};\quad z_M=\frac{z_A+z_B}{2}.
+            \]
+    \end{tc}
+    \begin{tc}
+        Cho tam giác $ABC$ có $A(x_A;y_A;z_A)$, $B(x_B;y_B;z_B)$, $C(x_C;y_C;z_C)$. Nếu $G(x_G;y_G;z_G)$ là trọng tâm tam giác $ABC$ thì
+            \[
+            x_G=\frac{x_A+x_B+x_C}{3};\quad y_G=\frac{y_A+y_B+y_C}{3};\quad z_G=\frac{z_A+z_B+z_C}{3}.
+            \]
+    \end{tc}
+    \subsection{Biểu thức toạ độ của tích vô hướng}
+    \begin{dn}
+        Nếu $\vec{u}=(x_1;y_1;z_1)$ và $\vec{v}=(x_2;y_2;z_2)$ thì $\vec{u}\cdot\vec{v}=x_1x_2+y_1y_2+z_1z_2$.
+    \end{dn}
+    \begin{nx}
+        \begin{itemize}
+            \item Nếu $\vec{a}=(x;y;z)$ thì $|\vec{a}|=\sqrt{\vec{a}\cdot\vec{a}}=\sqrt{x^2+y^2+z^2}$.
+            \item Nếu $A(x_1;y_1;z_1)$ và $B(x_2;y_2;z_2)$ thì
+                \[
+                AB=|\overrightarrow{AB}|=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}.
+                \]
+            \item Với hai vectơ $\vec{u}=(x_1;y_1;z_1)$ và $\vec{v}=(x_2;y_2;z_2)$ khác $\vec{0}$, ta có:
+            
+            $\vec{u}$ và $\vec{v}$ vuông góc với nhau khi và chỉ khi $x_1x_2+y_1y_2+z_1z_2=0$.
+            \item $\cos(\vec{u},\vec{v})=\displaystyle \frac{\vec{u}\cdot\vec{v}}{|\vec{u}|\cdot|\vec{v}|} =\frac{x_1x_2+y_1y_2+z_1z_2}{\sqrt{x_1^2+y_1^2+z_1^2}\cdot\sqrt{x_2^2+y_2^2+z_2^2}}$.
+        \end{itemize}
+    \end{nx}
+    \chapter{Toán thực tế xác định toạ độ điểm, toạ độ vectơ}
+    \section{Một số điểm lý thuyết quan trọng}
+    \subsection{Tọa độ điểm trong không gian $Oxyz$}
+    \begin{tc}
+    Một điểm $M(x;y;z)$ được xác định bởi ba khoảng cách có hướng:
+        \begin{itemize}
+            \item $x$: khoảng cách theo trục $Ox$ ($d(M,Ox)=|x|$)
+            \item $y$: khoảng cách theo trục $Oy$ ($d(M,Oy)=|y|$)
+            \item $z$: khoảng cách theo trục $Oz$ ($d(M,Oz)=|z|$)
+        \end{itemize}
+    \end{tc}
+    \begin{nx} Khi chọn hệ trục phù hợp, các đỉnh của hình lập phương, hình hộp chữ nhật, hình lăng trụ,... thường có tọa độ nguyên (dễ tính).
+    \end{nx}
+    \subsection{Biểu diễn vectơ và các phép toán vectơ cơ bản}
+    \begin{dn} Trong không gian với hệ tọa độ $Oxyz$, cho hai điểm
+    $A(x_A;y_A;z_A)$ và $B(x_B;y_B;z_B)$. Khi đó, $\overrightarrow{AB}=(x_B-x_A;y_B-y_A;z_B-z_A).$
+    
+    Nếu $\vec{u}=(x_1;y_1;z_1)$ và $\vec{v}=(x_2;y_2;z_2)$, thì
+    
+    \hspace{4 cm} $\vec{u}+\vec{v}=(x_1+x_2;y_1+y_2;z_1+z_2);$
+    
+    \hspace{4 cm} $\vec{u}-\vec{v}=(x_1-x_2;y_1-y_2;z_1-z_2);$
+
+    \hspace{4 cm} $m\vec{u}=(mx_1;my_1;mz_1) \quad \text{với } m\in\mathbb{R}.$
+    \end{dn}
+    \begin{nx} Hai vectơ $\vec{u}=(x_1;y_1;z_1)$,
+    $\vec{v}=(x_2;y_2;z_2)$ ($\vec{v}\ne\vec{0}$) cùng phương khi và chỉ khi
+    có một số thực $m$ sao cho
+    $\small \begin{cases}
+    x_1=mx_2,\\
+    y_1=my_2,\\
+    z_1=mz_2.
+    \end{cases}$
+    \end{nx}
+    \subsection{Toạ độ các điểm đặc biệt}
+    \begin{nx}
+    Ta có một số điểm đặt biệt với toạ độ như sau:
+        \begin{itemize}
+            \item Nếu $M$ là trung điểm của đoạn thẳng $AB$ thì: 
+            $$M\displaystyle \left(\frac{x_A+x_B}{2};\frac{y_A+y_B}{2};\frac{z_A+z_B}{2}\right)$$
+            \item Nếu $G$ là trọng tâm của tam giác $ABC$ thì: 
+            $$G\displaystyle \left(\frac{x_A+x_B+x_C}{3};\frac{y_A+y_B+y_C}{3};\frac{z_A+z_B+z_C}{3}\right)$$
+            \item Nếu $M$ chia đoạn thẳng $AB$ theo tỉ số $k$, tức là 
+            $\overrightarrow{MA}=k\overrightarrow{MB}$ thì: 
+            $$M \displaystyle \left( \frac{x_A-kx_B}{1-k};\frac{y_A-ky_B}{1-k};\frac{z_A-kz_B}{1-k} \right)$$
+        \end{itemize}
+    \end{nx}
+    \subsection{Bài toán có hướng Đông - Tây - Nam - Bắc}
+    \begin{nx}
+        Ta có một số điều cần lưu ý khi giải toán dạng này:
+        \begin{itemize}
+        \item Đặt hệ trục hợp lý, chẳng hạn như trong hình vẽ theo đúng thứ tự hướng.
+
+        \begin{center}
+            \includegraphics[width=0.9\textwidth]{Hinh1.jpg}
+        \end{center}
+    
+        \item Mặt phẳng $(Oxy)$: trùng với mặt đất.
+    
+        \item Trục $Oz$: vuông góc mặt đất, hướng lên trên.
+    
+        \item Trục $Ox$: chọn theo hướng Đông -- Tây.
+    
+        \item Trục $Oy$: chọn theo hướng Bắc -- Nam.
+    \end{itemize}
+    
+    Khi đó:
+    \begin{itemize}
+        \item Một điểm cách $a$ m về phía Đông thì hoành độ $x=+a$.
+        \item Một điểm cách $a$ m về phía Tây thì hoành độ $x=-a$.
+        \item Một điểm cách $a$ m về phía Bắc thì tung độ $y=+a$.
+        \item Một điểm cách $a$ m về phía Nam thì tung độ $y=-a$.
+    \end{itemize}
+    \subsection{Một số kinh nghiệm khi làm bài}
+    \begin{nx} Đối với các dạng toán thực tế xác định toạ độ điểm, toạ độ vectơ, ta cần:
+    \begin{itemize} 
+        \item Đặt hệ trục hợp lý: Thường đặt $O$ tại một góc, các trục song song với cạnh, đáy.
+        \item Xác định tọa độ các đỉnh trước (từ dữ kiện chiều dài, rộng, cao).
+        \item Viết vectơ cần tìm theo tọa độ.
+    \end{itemize}
+    \end{nx}
+    \end{nx}
+    \section{Một số ví dụ điển hình} 
+    \begin{vd}
+        Một ngôi nhà có dạng hình hộp chữ nhật, chiều cao $4$ m, mặt tiền $10$ m và chiều dài $20 m$. Trong nhà có một con nhện ở vị trí $A$, cách mặt đất $3m$, cách $2$ bức tường lần lượt là $2m$ và $1m$  (như hình minh họa).
+        \begin{center}
+            \includegraphics[width=0.9 \textwidth]{Hinh11.jpg}
+        \end{center}
+        Con nhện di chuyển theo đường thẳng đến góc nhà ở điểm $B$ với vận tốc không đổi $5$ cm/s.
+        Thời gian con nhện di chuyển là bao nhiêu giây (làm tròn tới hàng đơn vị).
+    \end{vd}
+    \noindent \textbf{\underline{Nhận xét của tác giả.}}
+        Ví dụ trên được lựa chọn vì đây là một tình huống khá trực quan, gần gũi với thực tế và có thể dễ dàng mô hình hóa bằng hệ trục tọa độ trong không gian. Từ vị trí của con nhện trong ngôi nhà, ta có thể chuyển các khoảng cách trong thực tế thành tọa độ của một điểm trong hệ trục $Oxyz$. Qua đó, bài toán giúp minh họa rõ cách sử dụng tọa độ điểm và công thức tính khoảng cách giữa hai điểm trong không gian để giải quyết một vấn đề thực tế.
+    \noindent \textbf{\underline{Ý tưởng giải.}}
+        Chọn hệ trục tọa độ $Oxyz$ phù hợp với kích thước của ngôi nhà, từ đó xác định tọa độ của vị trí con nhện và góc nhà. Tính độ dài đoạn thẳng nối hai vị trí bằng công thức khoảng cách trong không gian. Sau đó, sử dụng công thức $t=\dfrac{s}{v}$ để tính thời gian con nhện di chuyển.
+    
+    \noindent \underline{\textbf{Lời giải cụ thể:}}
+    
+    \noindent \textit{Bước 1. Thiết lập hệ trục và tọa độ}
+        \begin{itemize}
+            \item Đặt $A$ làm gốc tọa độ; các trục $Ox$, $Oy$, $Oz$ lần lượt cùng hướng với chiều dài, chiều rộng và chiều cao của ngôi nhà; mỗi đơn vị trên hệ trục tọa độ ứng với $1m$.
+            
+            \item Góc nhà ở điểm $B$ có tọa độ $B(0;10;4)$.
+            
+            \item Con nhện ở điểm $A$ cách mặt đất $3m$, cách $2$ bức tường lần lượt là $2m$ và $1m$ $\Rightarrow A(19;2;3)$.
+        \end{itemize}
+
+        \noindent \textit{Bước 2. Tính thời gian di chuyển}
+        \begin{itemize}
+            \item Quãng đường con nhện di chuyển là:
+            \[
+            AB=\sqrt{(0-19)^2+(10-2)^2+(4-3)^2}
+            =\sqrt{426}\,(\mathrm{m})
+            =100\sqrt{426}\,(\mathrm{cm}).
+            \]
+        
+            \item Vậy thời gian con nhện di chuyển là:
+            \[
+            t=\frac{AB}{v}
+            =\frac{100\sqrt{426}}{5}
+            =20\sqrt{426}\approx 413\,(\mathrm{s}).
+            \]
+        \end{itemize}
+        \noindent \underline{\textbf{Lời khuyên:}} Khi gặp các bài toán thực tế liên quan đến vị trí của các đối tượng trong không gian, nên lựa chọn hệ trục tọa độ sao cho các trục phù hợp với các hướng và kích thước đã cho. Sau khi xác định được tọa độ của các điểm, có thể sử dụng công thức tính khoảng cách trong không gian để đưa bài toán thực tế về một bài toán hình học tọa độ quen thuộc.
+        \begin{vd}
+            Một người đứng ở mặt đất điều khiển hai flycam để phục vụ trong một chương trình của đài truyền hình. Flycam I ở vị trí $A$ cách vị trí điều khiển $150\,\mathrm{m}$ về phía nam và $200\,\mathrm{m}$ về phía đông, đồng thời cách mặt đất $50\,\mathrm{m}$. Flycam II ở vị trí $B$ cách vị trí điều khiển $180\,\mathrm{m}$ về phía bắc và $240\,\mathrm{m}$ về phía tây, đồng thời cách mặt đất $60\,\mathrm{m}$. Chọn hệ trục tọa độ $Oxyz$ với gốc $O$ là vị trí người điều khiển, mặt phẳng $(Oxy)$ trùng với mặt đất, trục $Ox$ có hướng trùng với hướng nam, trục $Oy$ trùng với hướng đông, trục $Oz$ vuông góc với mặt đất hướng lên bầu trời, đơn vị trên mỗi trục tính theo mét. Khoảng cách giữa hai flycam đó bằng bao nhiêu mét (làm tròn đến hàng đơn vị)?
+        \end{vd}
+        \noindent \textbf{\underline{Nhận xét của tác giả}.}
+        Ví dụ này được lựa chọn vì có sự liên hệ trực tiếp giữa các phương hướng quen thuộc trong thực tế như Đông, Tây, Nam, Bắc với các chiều của hệ trục tọa độ trong không gian. Tình huống điều khiển Flycam cũng cho thấy hệ tọa độ $Oxyz$ có thể được sử dụng để xác định vị trí của các đối tượng dựa trên khoảng cách theo từng phương và độ cao so với mặt đất. Qua đó, bài toán minh họa rõ cách chuyển một tình huống thực tế thành mô hình tọa độ trong không gian.
+        
+        \noindent \textbf{\underline{Ý tưởng giải.}}
+        Dựa vào các phương hướng đã cho, lựa chọn hệ trục tọa độ sao cho các trục tọa độ lần lượt phù hợp với hướng Nam, Đông và phương thẳng đứng. Từ khoảng cách của mỗi Flycam đến các phương và độ cao so với mặt đất, xác định tọa độ của hai Flycam. Sau đó, sử dụng công thức tính khoảng cách giữa hai điểm trong không gian để tìm khoảng cách giữa chúng.
+        
+        \noindent \underline{\textbf{Lời giải cụ thể:}}
+        \begin{center}
+            \includegraphics[width=0.55\textwidth]{Hinh13.jpg}
+        \end{center}
+        
+        \noindent \textit{Bước 1. Xác định tọa độ các điểm}
+        \begin{itemize}
+            \item Trục $Ox$ có hướng trùng với hướng Nam, trục $Oy$ trùng với hướng Đông, trục $Oz$ vuông góc với mặt đất hướng lên bầu trời. Khi đó:
+            \begin{itemize}
+                \item Flycam I ở vị trí $A$ cách vị trí điều khiển $150\,\mathrm{m}$ về phía Nam, $200\,\mathrm{m}$ về phía Đông và cách mặt đất $50\,\mathrm{m}\Rightarrow A(150;200;50)$.
+                \item Flycam II ở vị trí $B$ cách vị trí điều khiển $180\,\mathrm{m}$ về phía Bắc, $240\,\mathrm{m}$ về phía Tây, đồng thời cách mặt đất $60\,\mathrm{m}\Rightarrow B(-180;-240;60)$.
+            \end{itemize}
+        \end{itemize}
+        \noindent \textit{Bước 2. Xác định khoảng cách giữa hai Flycam}
+        \begin{itemize}
+            \item Khoảng cách giữa hai Flycam đó chính là khoảng cách giữa $A$ và $B$ và bằng: $d=AB=\sqrt{(150+180)^2+(200+240)^2+(50-60)^2}\approx550\,\mathrm{m}.$
+        \end{itemize}
+        \noindent \underline{\textbf{Lời khuyên:}} Khi mô hình hóa các bài toán thực tế có liên quan đến phương hướng, cần xác định rõ mối quan hệ giữa các hướng Đông, Tây, Nam, Bắc và chiều dương, chiều âm của các trục tọa độ. Nếu chọn chiều dương của một trục theo hướng Đông thì hướng Tây sẽ tương ứng với chiều âm; tương tự, nếu chiều dương được chọn theo hướng Nam thì hướng Bắc sẽ tương ứng với chiều âm. Ngoài ra, cần phân biệt các khoảng cách theo phương ngang với độ cao theo phương thẳng đứng để xác định chính xác tọa độ của các đối tượng.
+        \begin{vd}
+            Theo phong tục xa xưa của ông cha ta, người ta thường tổ chức lễ đốt đèn trời trong ngày Tết, ngày lễ còn có hẳn y tâm linh xua đuổi bóng đêm và ma quỷ. Người dân luôn nuôi dưỡng đức tin rằng ánh sáng và hơi ấm của đèn trời sẽ xua tan đi tà khí và những điều xấu xa. Đèn trời được làm từ củi bàng giấy và các nan tre đan lại với nhau. Quy trình thả đèn trời cũng khá đơn giản và nhanh chóng, chỉ cần đốt lửa rồi thả cho bay lên trời. 
+            \begin{center}
+            \includegraphics[width=0.4 \textwidth]{Hinh23.jpg}
+            \end{center}
+            Hai chiếc đèn trời được thả lên cùng một địa điểm. Sau một khoảng thời gian, chiếc thứ nhất nằm cách địa điểm xuất phát $200\,\mathrm{m}$ về hướng Đông và $200\,\mathrm{m}$ về hướng Nam, đồng thời cách mặt đất $50\,\mathrm{m}$; chiếc thứ hai nằm cách địa điểm xuất phát $100\,\mathrm{m}$ về hướng Tây và $100\,\mathrm{m}$ về hướng Bắc, đồng thời cách mặt đất $40\,\mathrm{m}$. Cùng thời điểm đó, một người đứng trên mặt đất quan sát thấy hai đèn trời nổi trên trời. Biết rằng, so với vị trí quan sát trên mặt đất, vị trí người quan sát có tổng khoảng cách đến hai đèn trời là nhỏ nhất. Tính khoảng cách từ vị trí người quan sát đến địa điểm thả đèn trời (đơn vị mét) (kết quả làm tròn đến hàng đơn vị).
+        \end{vd}
+        \noindent \underline{\textbf{Nhận xét của tác giả:}}
+        Nếu ở \textbf{Ví dụ 2.2.2}, hệ tọa độ được sử dụng chủ yếu để xác định vị trí của hai Flycam và tính khoảng cách giữa chúng, thì ví dụ này khai thác hệ tọa độ theo một hướng khác: tìm vị trí trên mặt đất sao cho tổng khoảng cách từ vị trí đó đến hai chiếc đèn trời là nhỏ nhất. Tình huống thả đèn trời trong thực tế tạo ra một bài toán trực quan về khoảng cách và sự đối xứng qua mặt phẳng. Đây là một ví dụ phù hợp để minh họa cách kết hợp tọa độ, vectơ và phép đối xứng để giải quyết bài toán cực trị hình học trong không gian.
+        
+        \noindent \underline{\textbf{Ý tưởng giải:}}
+        Lựa chọn hệ trục tọa độ $Oxyz$ phù hợp với mặt đất và các phương Đông, Tây, Nam, Bắc để xác định tọa độ của hai chiếc đèn trời. Gọi $M$ là vị trí của người đứng trên mặt đất. Khi đó, cần tìm $M$ sao cho tổng khoảng cách $MA+MB$ nhỏ nhất. Ta lấy điểm $B'$ đối xứng với $B$ qua mặt phẳng $(Oxy)$. Vì $M$ thuộc $(Oxy)$ nên $MB=MB'$, do đó
+        \[
+        MA+MB=MA+MB'\geq AB'.
+        \]
+        Dấu bằng xảy ra khi $M$ nằm trên đoạn thẳng $AB'$. Vì vậy, ta xác định giao điểm của $AB'$ với mặt phẳng $(Oxy)$, sau đó tính khoảng cách từ giao điểm đó đến vị trí của chiếc đèn trời.
+        
+        \noindent \underline{\textbf{Lời giải cụ thể:}}
+        Xét hệ trục tọa độ $Oxyz$ như hình vẽ.
+        \begin{center}
+            \includegraphics[width=0.5 \textwidth]{Hinh14..jpg}
+        \end{center}
+        Ta có tọa độ chiếc đèn thứ nhất là $A(200;-200;50)$ và $B(-100;100;40)$.
+        \begin{center}
+            \includegraphics[width=0.4 \textwidth]{Hinh15.jpg}
+        \end{center}
+        Người đứng trên mặt đất là điểm $M$. Lấy điểm $B'$ đối xứng với $B$ qua mặt phẳng $(Oxy)$.
+        Ta có $MA+MB=MA+MB'\ge AB'$, dấu bằng xảy ra khi $M$ nằm giữa $A$ và $B'$.
+        
+        \noindent Vậy để $MA+MB$ đạt giá trị nhỏ nhất thì $M$ là giao điểm của $AB'$ với $(Oxy)$.
+        Gọi $M_0(a;b;0)$, ta có $\overrightarrow{AM_0}=(a-200;b+200;-50)$ và $\overrightarrow{AB'}=(-300;300;-90)$.
+        
+        \noindent Mà $\displaystyle \overrightarrow{AM_0}\parallel\overrightarrow{AB'}\Leftrightarrow
+        \frac{a-200}{-300}=\frac{b+200}{300}=\frac{5}{9}
+        \Leftrightarrow
+        \small \begin{cases}
+        a=\dfrac{100}{3},\\
+        b=-\dfrac{100}{3}.
+        \end{cases}$
+        
+        $\Rightarrow M_0\left(\dfrac{100}{3};-\dfrac{100}{3};0\right)$.
+        
+        \noindent Vậy khoảng cách cần tìm là: $OM_0=\sqrt{\left(\frac{100}{3}\right)^2+\left(-\frac{100}{3}\right)^2}
+        =\frac{100}{3}\sqrt{2}\approx47\,\mathrm{m}.$
+        
+        \noindent \underline{\textbf{Lời khuyên:}}
+        Đối với những bài toán trong không gian yêu cầu tìm một vị trí trên mặt phẳng sao cho tổng khoảng cách đến hai điểm đạt giá trị nhỏ nhất, không nên vội thiết lập bài toán cực trị bằng các công thức đại số. Có thể thử nhận ra yếu tố đối xứng: phản xạ một điểm qua mặt phẳng chứa vị trí cần tìm sẽ biến tổng hai đoạn đường thành một đường gấp khúc. Khi đó, có thể sử dụng bất đẳng thức tam giác để tìm giá trị nhỏ nhất. Cách làm này thường trực quan và thuận tiện hơn trong các bài toán tương tự.
+    \chapter{Ứng dụng vectơ tính khoảng cách trong các mô hình hình học}
+    \section{Một số điểm lý thuyết quan trọng}
+    \subsection{Biểu thức toạ độ của tích vô hướng}
+    \begin{dn}
+        Nếu $\vec{u}=(x_1;y_1;z_1)$ và $\vec{v}=(x_2;y_2;z_2)$ thì $\vec{u}\cdot\vec{v}=x_1x_2+y_1y_2+z_1z_2$.
+    \end{dn}
+    \begin{nx}
+        \begin{itemize}
+            \item Nếu $\vec{a}=(x;y;z)$ thì $|\vec{a}|=\sqrt{\vec{a}\cdot\vec{a}}=\sqrt{x^2+y^2+z^2}$.
+            \item Nếu $A(x_1;y_1;z_1)$ và $B(x_2;y_2;z_2)$ thì
+            \[
+            AB=|\overrightarrow{AB}|=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}.
+            \]
+            \item Với hai vectơ $\vec{u}=(x_1;y_1;z_1)$ và $\vec{v}=(x_2;y_2;z_2)$ khác vectơ $\vec{0}$, ta có:
+
+            $\vec{u}$ và $\vec{v}$ vuông góc với nhau khi và chỉ khi $x_1x_2+y_1y_2+z_1z_2=0$.
+            \item $\cos(\vec{u},\vec{v})
+                =\displaystyle \frac{\vec{u}\cdot\vec{v}}{|\vec{u}|\cdot|\vec{v}|}
+                =\frac{x_1x_2+y_1y_2+z_1z_2}
+                {\sqrt{x_1^2+y_1^2+z_1^2}\sqrt{x_2^2+y_2^2+z_2^2}}.$
+        \end{itemize}
+    \end{nx}
+    \subsection{Diện tích và thể tích}
+    \begin{nx}
+        \begin{itemize}
+            \item Diện tích hình bình hành $ABCD$: $S_{ABCD}=\left|[\overrightarrow{AB},\overrightarrow{AD}]\right|.$
+        
+            \item Diện tích tam giác $ABC$: $S_{ABC}=\frac{1}{2}\left|[\overrightarrow{AB},\overrightarrow{AC}]\right|.$
+        
+            \item Thể tích khối hộp $ABCD.A'B'C'D'$: $V=\left|[\overrightarrow{AB},[\overrightarrow{AD},\overrightarrow{AA'}]]\right|.$
+        
+            \item Thể tích tứ diện $ABCD$: $V=\frac{1}{6}\left|\overrightarrow{AB}\cdot[\overrightarrow{AC},\overrightarrow{AD}]\right|.$
+        \end{itemize}
+    \end{nx}
+    \subsection{Một số kinh nghiệm khi làm bài}
+    \begin{cy}
+        Các bài toán này thường có các đặc trưng sau:
+        \begin{itemize}
+            \item Tính thể tích khối đa diện khi cho cạnh, đường chéo.
+        \end{itemize}
+        \begin{itemize}
+            \item Tính khoảng cách, độ dài đoạn thẳng trong lăng trụ/lục giác đều.
+            
+            \item Thiết lập tọa độ điểm phụ, viết vectơ bằng tổ hợp các vectơ cơ bản.
+            
+            \item Xác định vị trí điểm di động theo tham số $x,y$ giải hệ để tìm khoảng cách nhỏ nhất hoặc thỏa mãn điều kiện.
+            
+            \item Khi có điểm di động (tham số)
+            \begin{itemize}
+                \item Biểu diễn vectơ bằng tổ hợp tuyến tính theo tham số.
+                \item Dùng tích vô hướng hoặc biểu thức độ dài để lập phương trình/hệ điều kiện.
+                \item Bài toán ``khoảng cách nhỏ nhất'' thường quy về tìm giá trị nhỏ nhất của tam thức bậc hai.
+            \end{itemize}
+            \end{itemize}
+    \end{cy}
+    \section{Một số ví dụ điển hình và ý tưởng giải}
+    \begin{vd}
+        Phòng khách nhà bác An có dạng là một hình hộp chữ nhật $ABCD.A'B'C'D'$ với $AB=5\,\mathrm{m}$, $BC=6\,\mathrm{m}$, $AA'=3\,\mathrm{m}$. Để chuẩn bị đón Tết Nguyên Đán bác lên kế hoạch trang trí cho phần không gian của phòng khách bằng các dây đèn trang trí $NC$, $BM$, $EF$ được mắc như hình vẽ. Biết rằng $EF$ song song với $AC$ và $BN=2\,\mathrm{m}$; $DM=1\,\mathrm{m}$. Giá mỗi mét dây đèn trang trí là $120\,000$ đồng. Hỏi số tiền bác mua dây đèn trang trí là bao nhiêu triệu đồng?.
+        \begin{center}
+            \includegraphics[width=0.35 \textwidth]{Hinh16.jpg}
+        \end{center}
+    \end{vd}
+    \noindent \underline{\textbf{Nhận xét của tác giả:}} Ví dụ này được lựa chọn vì gắn với một tình huống thực tế khá gần gũi là trang trí không gian trong một căn phòng. Khác với các ví dụ trước chủ yếu sử dụng tọa độ để xác định khoảng cách giữa các điểm, ví dụ này yêu cầu tính độ dài của nhiều đoạn dây trang trí nằm ở những vị trí khác nhau trong không gian. Đặc biệt, điều kiện $EF\parallel AC$ tạo ra sự liên hệ giữa các đoạn thẳng trong các mặt phẳng khác nhau, qua đó minh họa khả năng sử dụng tọa độ và vectơ để mô hình hóa một bài toán hình học không gian có nhiều yếu tố ràng buộc.
+
+    \noindent \underline{\textbf{Ý tưởng giải:}} Chọn hệ trục tọa độ $Oxyz$ phù hợp với các cạnh của hình hộp chữ nhật, từ đó xác định tọa độ các đỉnh và các điểm $M$, $N$ dựa vào những khoảng cách đã cho. Tính độ dài hai đoạn dây $NC$ và $DM$ bằng công thức khoảng cách giữa hai điểm trong không gian. Đối với đoạn $EF$, sử dụng điều kiện $EF\parallel AC$ để biểu diễn vectơ $\overrightarrow{EF}$ cùng phương với $\overrightarrow{AC}$, đồng thời dựa vào vị trí của $E$, $F$ trên các cạnh để xác định độ dài $EF$. Cuối cùng, cộng độ dài ba đoạn dây trang trí và nhân với đơn giá để tính tổng chi phí.
+    
+    \noindent \underline{\textbf{Lời giải cụ thể:}}
+    \begin{center}
+        \includegraphics[width=0.55 \textwidth]{Hinh24.jpg}
+    \end{center}
+    
+    \noindent \textit{Bước 1. Đặt hệ trục -- tọa độ điểm}
+       
+        Chọn $B'(0;0;0)$, các trục song song với các cạnh. 
+        
+        Khi đó:
+            $B(0;0;3),\quad A(5;0;3),\quad C(0;6;3),\quad D(5;6;3).$
+       
+        Vì $DM=1\Rightarrow M(5;6;2)$; $BN=2\Rightarrow N(0;0;1)$.
+        
+    \noindent \textit{Bước 2. Tính $BM$ và $CN$}
+    
+        Ta có: $\overrightarrow{BM}=(5;6;-1) \Rightarrow |BM|=\sqrt{5^2+6^2+(-1)^2}=\sqrt{62}.$
+        
+        Lại có:
+        $\overrightarrow{CN}=(0;-6;-2) \Rightarrow |CN|=\sqrt{0^2+(-6)^2+(-2)^2}=2\sqrt{10}.$
+        
+    \noindent \textit{Bước 3. Tìm tham số hóa $E\in BM$, $F\in CN$ và dùng điều kiện $EF\parallel AC$}
+        
+        Lấy $E\in BM$: $E=B+a(5;6;-1)=(5a;6a;3-a),\quad (0<a<1).$
+        
+        Lấy $F\in CN$:
+        $F=N+b(0;3;1)=(0;3b;1+b),\quad (0<b<2).$
+        
+        Có:
+        $\overrightarrow{EF}=F-E=(-5a;3b-6a;a+b-2) \overrightarrow{AC}=(-5;6;0).$
+        
+        Có:
+        $EF\parallel AC
+        \Leftrightarrow
+        \small \begin{cases}
+        a+b-2=0,\\
+        \dfrac{-5a}{-5}=\dfrac{3b-6a}{6}
+        \end{cases}
+        \Leftrightarrow
+        \small \begin{cases}
+        a=\dfrac{2}{5},\\
+        b=\dfrac{8}{5}.
+        \end{cases}$
+        
+        Vậy:
+        $EF=\sqrt{(-2)^2+\left(\dfrac{12}{5}\right)^2}
+        =\dfrac{2\sqrt{61}}{5}.$
+        
+        \noindent \textit{Bước 4. Tính tổng chiều dài dây và số tiền}
+        
+        $L=BM+CN+EF
+        =\sqrt{62}+2\sqrt{10}+\dfrac{2\sqrt{61}}{5}
+        \approx17,323\,\mathrm{m}.$
+        
+        Giá tiền:
+        $120000\times L\approx2\,078\,720\,\text{đồng}
+        \approx2,08\,\text{triệu đồng}.$
+
+        \noindent \underline{\textbf{Lời khuyên:}} Trong các bài toán hình học không gian liên quan đến độ dài các đoạn dây, đoạn nối hoặc khoảng cách giữa các vị trí trong một mô hình thực tế, nên lựa chọn hệ trục tọa độ sao cho các trục trùng hoặc song song với các cạnh của hình hộp. Khi đó, tọa độ của các điểm thường được xác định trực tiếp từ các kích thước đã cho. Đối với những đoạn thẳng có thêm điều kiện như song song hoặc cùng phương, có thể khai thác tọa độ và vectơ để thiết lập mối quan hệ giữa các điểm thay vì chỉ dựa vào hình học thuần túy.
+        \begin{vd} Một bể cá đầy nước có dạng hình hộp chữ nhật $ABCD.EFGH$ với $AB=6\,\mathrm{dm}$, $AD=8\,\mathrm{dm}$ và cạnh bên bằng $10\,\mathrm{dm}$. Một cá có muốn leo đoạn thẳng qua điểm $G$ đến chạm mặt đáy của hồ, rồi từ điểm đó bơi đến vị trí điểm $M$ là trung điểm của $AF$ được mô hình hóa như hình vẽ sau:
+        \begin{center}
+            \includegraphics[width=0.35 \textwidth]{Hinh17.jpg}
+        \end{center}
+        Biết rằng điểm cá đến điểm dưới đáy hồ cách $BA$ và $BC$ những đoạn bằng $a$ và $b$. Khi đó tổng $D=3a+6b$ bằng bao nhiêu?
+        \end{vd} 
+    \noindent \underline{\textbf{Nhận xét của tác giả:}}
+        Ví dụ này được lựa chọn vì xuất phát từ một tình huống thực tế về đường đi ngắn nhất trong một bể nước hình hộp chữ nhật. So với \textbf{Ví dụ 3.2.1}, khi đó ta chủ yếu tính độ dài các đoạn dây dựa trên tọa độ của các điểm, còn ở ví dụ này cần tìm vị trí của một điểm trên mặt phẳng sao cho tổng độ dài đường đi là nhỏ nhất. Bài toán qua đó minh họa rõ hơn việc kết hợp tọa độ với phép đối xứng để giải quyết bài toán cực trị về khoảng cách trong không gian.
+        
+    \noindent \underline{\textbf{Ý tưởng giải:}}
+        Chọn hệ trục tọa độ $Oxyz$ phù hợp với các cạnh của bể cá để xác định tọa độ của các điểm $A$, $G$ và $M$. Gọi $G'$ là điểm đối xứng của $G$ qua mặt phẳng $(Oxy)$. Vì điểm $I$ nằm trên $(Oxy)$ nên $IG=IG'$, do đó
+        \[
+        MI+IG=MI+IG'\geq MG'.
+        \]
+        Dấu bằng xảy ra khi $I$ là giao điểm của đoạn thẳng $MG'$ với mặt phẳng $(Oxy)$. Vì vậy, xác định giao điểm này sẽ cho vị trí $I$ để đường đi từ $M$ đến $G$ qua $I$ là ngắn nhất. Cuối cùng, dựa vào các điều kiện $IA=a$, $IB=b$ để tìm $a$ và $b$.
+        
+    \noindent \underline{\textbf{Lời giải cụ thể:}}
+    \begin{center}
+        \includegraphics[width=0.5 \textwidth]{Hinh25.jpg}
+    \end{center}
+    \noindent \textit{Bước 1. Đặt hệ trục tọa độ $Oxyz$}
+
+        Đặt hệ trục $Oxyz$ như hình vẽ với gốc tọa độ đặt tại $B$.
+        Tia $Ox$, $Oy$, $Oz$ lần lượt trùng với các tia $BA$, $BC$, $BF$.
+        
+        Khi đó, $A(6;0;0)$, $C(0;8;0)$, $F(0;10;0)$, $G(0;8;10)$.
+        
+        $M$ là trung điểm của $AF\Rightarrow M(3;0;5)$.
+        
+       \noindent \textit{Bước 2. Dùng tính đối xứng để tính đường đi ngắn nhất}
+        
+        Gọi $G'$ là điểm đối xứng của $G$ qua mặt phẳng $(Oxy)$.
+        $\Rightarrow G'(0;8;-10)$.
+        
+        Khi đó $MI+IG=MI+IG'\ge MG'$.
+        
+        Vậy đường đi ngắn nhất khi $I$ là giao điểm của $MG'$ và $(Oxy)$.
+        
+       \noindent \textit{Bước 3. Tìm tọa độ điểm $I$}
+        
+        Gọi $I(x_1;y_1;0)$. Vì $\overrightarrow{MI}\parallel\overrightarrow{MG'}$ nên
+        $\frac{x_1-3}{-3}=\frac{y_1}{8}=\frac{1}{3}
+        \Leftrightarrow
+        \small \begin{cases}
+        x_1=2,\\
+        y_1=\dfrac{8}{3}.
+        \end{cases}$
+        
+        Có $d(I,BA)=y_1=\dfrac{8}{3}$; $d(I,BC)=x_1=2$
+        $\Rightarrow 3a+6b=20$.
+
+        \noindent \underline{\textbf{Lời khuyên:}}
+    Đối với các bài toán yêu cầu tìm đường đi ngắn nhất giữa hai điểm nhưng đường đi phải đi qua một mặt phẳng hoặc một mặt phẳng chứa vị trí trung gian, có thể thử sử dụng phép đối xứng để biến đường gấp khúc thành một đoạn thẳng. Sau khi phản xạ một trong hai điểm qua mặt phẳng đó, bài toán có thể được đưa về tìm khoảng cách ngắn nhất giữa hai điểm. Đây là một cách tiếp cận trực quan và đơn giản hóa hơn việc tính toán trong không gian.
+    
+
+        
+    \begin{vd}
+    Trượt nước là một trong những trò chơi vận động được nhiều người yêu thích trong các công viên nước. Một cái máng trượt nước có thiết kế dạng cung tròn với hai đầu mút $A$ và $B$. Chọn hệ trục tọa độ $Oxyz$ với gốc tọa độ tại hình chiếu của $A$ trên mặt đất, trục $Ox$ nằm trong mặt đất và trục $Oz$ hướng thẳng đứng lên trời, đơn vị đo lấy theo mét (tham khảo hình vẽ dưới đây). Biết các điểm $A$, $B$ và một điểm $C$ nằm trên máng trượt lần lượt có tọa độ là $(0;5;0)$, $(5;0;2)$ và $(5;0;2)$. Độ dài máng trượt nước bằng bao nhiêu mét (làm tròn kết quả đến hàng đơn vị của mét)?
+    \end{vd}
+    \begin{center}
+        \includegraphics[width=0.8 \textwidth]{Hinh18.jpg}
+    \end{center}
+    \noindent \underline{\textbf{Nhận xét của tác giả:}} Ví dụ này được lựa chọn vì xuất phát từ một mô hình thực tế quen thuộc là máng trượt nước dạng cung tròn, qua đó cho thấy vectơ có thể được kết hợp với các kiến thức hình học khác để giải quyết một bài toán thực tế. Nếu ở các ví dụ trước, vectơ chủ yếu được sử dụng để tính khoảng cách hoặc tìm đường đi ngắn nhất trong không gian, thì ở ví dụ này, tích vô hướng của vectơ được sử dụng để xác định góc tạo bởi hai đoạn thẳng trong không gian. Từ góc tìm được, ta tiếp tục sử dụng các tính chất của đường tròn để xác định độ dài cung, từ đó tính chiều dài của máng trượt.
+
+    \noindent \underline{\textbf{Ý tưởng giải:}} Xem máng trượt là một cung của đường tròn ngoại tiếp tam giác $ABC$. Trước hết, sử dụng tọa độ của ba điểm $A$, $B$, $C$ để tính độ dài các cạnh của tam giác, từ đó xác định bán kính đường tròn ngoại tiếp. Tiếp theo, dùng tích vô hướng của hai vectơ $\overrightarrow{CA}$ và $\overrightarrow{CB}$ để tính góc $\widehat{ACB}$. Dựa vào mối liên hệ giữa góc nội tiếp và góc ở tâm, xác định số đo cung $AB$ chứa máng trượt. Cuối cùng, áp dụng công thức độ dài cung $l=R\theta$ để tính chiều dài máng trượt.
+
+    \noindent \underline{\textbf{Lời giải cụ thể:}}
+    
+        \noindent \textit{Bước 1. Tính bán kính $R$ đường tròn ngoại tiếp $\triangle ABC$}
+
+        Máng trượt là một cung tròn có hai đầu $A,B$ và đi qua điểm $C$.
+        
+        Độ dài máng trượt chính là độ dài cung $\widehat{ACB}$ của đường tròn ngoại tiếp $\triangle ABC$.
+        
+        Ta có:
+        $$AB=\sqrt{6^2+7^2+(1-5)^2}=\sqrt{101}\,(\mathrm{m}),$$
+        $$AC=\sqrt{5^2+0^2+(2-5)^2}=\sqrt{34}\,(\mathrm{m}),$$
+        $$BC=\sqrt{(5-6)^2+7^2+(2-1)^2}=\sqrt{51}\,(\mathrm{m}).$$
+        
+        Khi đó: $S=\sqrt{p(p-a)(p-b)(p-c)}
+        =\displaystyle \frac{\sqrt{1670}}{2}\,(\mathrm{m}^2)
+        =\frac{abc}{4R}.$
+        
+        Suy ra bán kính $R$ của đường tròn ngoại tiếp $\triangle ABC$ là:
+        $R=\displaystyle \frac{abc}{4S}
+        =\frac{\sqrt{175005}}{1670}\,(\mathrm{m}).$
+        
+        \noindent \textit{Bước 2. Tính góc nội tiếp chắn dây $AB$}
+        
+        Ta có $\overrightarrow{CA}=(-5;0;3)$, $\overrightarrow{CB}=(1;7;-1)$.
+        
+        Khi đó:
+        $\cos\widehat{ACB}
+        =\cos(\overrightarrow{CA},\overrightarrow{CB})
+        =\displaystyle \frac{\overrightarrow{CA}\cdot\overrightarrow{CB}}
+        {|\overrightarrow{CA}|\cdot|\overrightarrow{CB}|}
+        =\frac{(-5)+0+(-3)}
+        {\sqrt{34}\cdot\sqrt{51}}
+        =-\frac{8}{17\sqrt{6}}.$
+        
+        $\Rightarrow \widehat{ACB}\approx1,76\,(\mathrm{rad}).$
+        
+        \noindent \textit{Bước 3. Tính độ dài cung cần tìm}
+        
+        Cung $\widehat{AB}$ không chứa $C$ chắn bởi góc $\widehat{ACB}$.
+        
+        Suy ra cung $\widehat{ACB}$ bởi dây $AB$ có số đo bằng $2\pi-2\widehat{ACB}$.
+        
+        Vậy độ dài máng trượt bằng
+        $l=R(2\pi-2\widehat{ACB})\approx14\,(\mathrm{m}).$
+    
+    \noindent \underline{\textbf{Lời khuyên:}} Trong  bài toán thực tế mà một đoạn đường có dạng cung tròn, trước hết cần nhận diện đúng cung tròn và xác định các đại lượng cần thiết như bán kính và góc ở tâm. Khi các điểm trên cung đã được cho dưới dạng tọa độ, có thể sử dụng vectơ và tích vô hướng để tính góc thay vì phải xác định góc trực tiếp từ hình vẽ. Đồng thời, cần phân biệt góc ở tâm với góc nội tiếp và lựa chọn đúng số đo cung tương ứng trước khi áp dụng công thức tính độ dài cung.
+    \chapter{TOẠ ĐỘ VECTƠ BÀI TOÁN TỔNG HỢP LỰC}
+    \section{Một số điểm lý thuyết quan trọng}
+        \begin{dn} \textbf{(Hợp lực)} Mỗi lực tác động lên vật được biểu diễn bởi một vectơ lực. Hợp lực $\vec{F}$ của các lực $\vec{F}_1, \vec{F}_2, \ldots, \vec{F}_n$ là một vectơ duy nhất thỏa mãn:
+        \[
+        \vec{F} = \vec{F}_1 + \vec{F}_2 + \cdots + \vec{F}_n.
+        \]
+    \end{dn}
+    \begin{dn} \textbf{(Cân bằng lực)}
+        \begin{itemize}
+            \item Nguyên tắc chung: Vật đứng yên (cân bằng) khi hợp lực bằng vectơ không:
+            \[
+            \vec{F} = \vec{0}.
+            \]
+        
+            \item Chiếu phương trình cân bằng $\vec{F}=\vec{0}$ lên hai trục $Ox$ và $Oy$: 
+            \begin{itemize}
+                \item $\sum F_{xi}=0$ (tổng hợp chiếu lực lên trục $Ox$ bằng $0$),
+                \item $\sum F_{yi}=0$ (tổng hợp chiếu lực lên trục $Oy$ bằng $0$).
+            \end{itemize}
+            \item Minh họa. Một vật treo bởi hai sợi dây tạo với phương ngang các góc $\alpha,\beta$, chịu tác dụng của trọng lực $\vec{P}$ thẳng đứng xuống.
+             \begin{center}
+                \includegraphics[width=0.8 \textwidth]{Hinh19.jpg}
+            \end{center}
+        \end{itemize}
+        
+            Khi cân bằng, ta chiếu các lực lên từng trục, lập hệ
+            \[
+            \small \begin{cases}
+            F_1\cos\alpha = F_2\cos\beta,\\
+            F_1\sin\alpha + F_2\sin\beta = P.
+            \end{cases}
+            \]
+        \end{dn}
+    \section{Một số ví dụ điển hình và ý tưởng giải}
+    \begin{vd}
+        Trong chuyến cắm trại, túi đồ ăn có trọng lượng $P=120\,\mathrm{N}$ được treo cân bằng bởi hai dây buộc vào hai cây ở hai bên. Dây trái tạo với phương ngang một góc $\alpha=30^\circ$ với phương ngang, dây phải tạo một góc $\beta=60^\circ$ so với phương ngang (như hình). Gọi lực căng trong hai dây lần lượt là $\vec{F}_1,\vec{F}_2$ (đều hướng lên dọc theo dây). Tính tổng lực hai dây $F_1+F_2$. (Đơn vị: N) (Kết quả làm tròn đến hàng đơn vị).
+         \begin{center}
+                \includegraphics[width=0.5 \textwidth]{Hinh20.jpg}
+        \end{center}
+    \end{vd}
+    \noindent \underline{\textbf{Nhận xét của tác giả:}} Ví dụ này được lựa chọn vì mô tả một tình huống thực tế quen thuộc trong đó một vật chịu tác dụng đồng thời của nhiều lực. Hai dây treo tạo ra hai lực căng có phương khác nhau, trong khi trọng lực hướng thẳng đứng xuống dưới. Đây là một mô hình trực quan minh họa cách biểu diễn các lực bằng vectơ và sử dụng điều kiện cân bằng lực để xác định các đại lượng chưa biết. Qua ví dụ, có thể thấy các lực trong thực tế được chuyển thành các vectơ và được phân tích theo các phương thích hợp để thuận tiện cho việc tính toán.
+
+    \noindent \underline{\textbf{Ý tưởng giải:}} Biểu diễn lực căng của hai dây và trọng lực bằng các vectơ, sau đó chiếu phương trình cân bằng lực lên phương ngang và phương thẳng đứng. Từ phương ngang, thiết lập mối quan hệ giữa hai lực căng thông qua các góc $\alpha$ và $\beta$. Tiếp theo, sử dụng phương trình cân bằng theo phương thẳng đứng cùng với trọng lượng $P$ để xác định độ lớn của từng lực căng. Cuối cùng, tính tổng $F_1+F_2$ theo yêu cầu của bài toán.
+
+    \noindent \underline{\textbf{Lời giải cụ thể:}}
+    \noindent \textit{Bước 1. Phân tích dữ kiện}
+        
+        Dây trái tạo với phương ngang góc $\alpha=30^\circ$, lực căng $F_1$.
+        
+        Dây phải tạo với phương ngang góc $\beta=60^\circ$, lực căng $F_2$.
+        
+        Trọng lượng túi: $P=120\,\mathrm{N}$, hệ cân bằng.
+        
+    \noindent \textit{Bước 2. Cân bằng lực}
+        
+        Cân bằng lực theo phương ngang:
+        
+        $F_1\cos\alpha=F_2\cos\beta
+        \Leftrightarrow F_1\cos30^\circ=F_2\cos60^ \circ \Rightarrow F_2=\dfrac{\cos30^\circ}{\cos60^\circ}F_1=\sqrt{3}F_1.$
+        
+        Cân bằng lực theo phương thẳng đứng:
+        $$P=F_1\sin\alpha+F_2\sin\beta.$$
+        
+    \noindent \textit{Bước 3. Tính tổng lực}
+        
+        Thay $P=120\,\mathrm{N}$, ta có:
+        $$120=F_1\sin30^\circ+\sqrt{3}F_1\sin60^\circ
+        \Rightarrow F_1=60\,\mathrm{N} \Rightarrow F_2=60\sqrt{3}\,(\mathrm{N}).$$
+        
+        Tổng lực căng $F_1+F_2=60+60\sqrt{3}\approx164\,\mathrm{N}.$
+
+    \noindent \underline{\textbf{Lời khuyên:}} Khi giải các bài toán thực tế về cân bằng lực, nên xác định đầy đủ các lực tác dụng lên vật và chú ý đến phương, chiều của từng lực. Với các lực không cùng phương, có thể phân tích mỗi lực thành các thành phần theo những trục tọa độ phù hợp, sau đó sử dụng điều kiện tổng các thành phần theo mỗi phương bằng $0$. Đặc biệt, cần phân biệt rõ góc mà lực tạo với phương ngang hoặc phương thẳng đứng để sử dụng đúng các thành phần $\sin$ và $\cos$.
+    \begin{vd}
+        Cân đòn là dụng cụ đo khối lượng ở Việt Nam đầu những năm 1990 trở về trước. Đĩa cân được treo bởi ba sợi xích xuất phát từ điểm $S$ trên đầu móc của cân và lần lượt móc vào ba điểm $A$, $B$, $C$ trên đĩa cân sao cho $\triangle ABC$ đều (xem hình minh họa). Độ dài của ba đoạn xích $SA$, $SB$, $SC$ đều bằng $60\,\mathrm{cm}$. Biết khối lượng của vật đặt trên đĩa cân là $8{,}8\,\mathrm{kg}$, đĩa cân có khối lượng $0{,}2\,\mathrm{kg}$ và miệng đĩa cân là đường tròn có bán kính $20\,\mathrm{cm}$.
+        \begin{center}
+                \includegraphics[width=0.4 \textwidth]{Hinh21.jpg}
+        \end{center}
+        Độ lớn của các lực căng trên mỗi sợi xích bằng bao nhiêu Newton? (làm tròn kết quả đến hàng phần mười). Biết $\vec{P}=m\vec{g}$, trong đó $\vec{g}$ là vectơ gia tốc rơi tự do có độ lớn $10\,\mathrm{m/s^2}$, $m$ là khối lượng của vật có đơn vị kg.
+    \end{vd}
+    \noindent \underline{\textbf{Nhận xét của tác giả:}}
+    Ví dụ này được lựa chọn vì mô tả một dụng cụ quen thuộc trong đời sống và cho thấy rõ vai trò của lực căng trong hệ thống dây treo. Khác với \textbf{Ví dụ 4.2.1}, trong đó vật được giữ bởi hai dây và các lực được phân tích theo hai phương, ở ví dụ này đĩa cân được treo bởi ba sợi xích có vị trí đối xứng. Sự đối xứng của hệ thống cho phép các lực căng có cùng độ lớn và hợp lực của chúng có phương thẳng đứng, từ đó bài toán trở nên thuận tiện hơn khi sử dụng điều kiện cân bằng lực.
+    
+    \noindent \underline{\textbf{Ý tưởng giải:}}
+    Trước hết, xác định tổng trọng lượng của vật và đĩa cân. Do ba điểm $A$, $B$, $C$ là các đỉnh của một tam giác đều và ba sợi xích có độ dài bằng nhau nên hệ thống có tính đối xứng, vì vậy ba lực căng có cùng độ lớn. Xác định góc mà mỗi sợi xích tạo với phương thẳng đứng dựa vào bán kính đường tròn ngoại tiếp tam giác đều $ABC$ và độ dài sợi xích. Sau đó, chiếu một lực căng lên phương thẳng đứng và sử dụng điều kiện cân bằng lực theo phương này để tính độ lớn của lực căng trên mỗi sợi xích.
+
+    \noindent \underline{\textbf{Lời giải cụ thể:}}
+    
+    \noindent \textit{Bước 1. Trọng lượng cần giữ}
+
+    Khối lượng toàn bộ: $m=8,8+0,2=9\,\mathrm{kg}$.
+    
+    Lấy $g=10\,\mathrm{m/s^2}\Rightarrow$ trọng lượng $P=m\cdot g=9\cdot10=90\,\mathrm{N}$.
+    
+    \noindent \textit{Bước 2. Độ lớn các lực căng}
+    
+    $SA=SB=SC=60\,\mathrm{cm}$ và $A,B,C$ là các đỉnh của tam giác đều trên vành đĩa tròn (bán kính $R=20\,\mathrm{cm}$).
+    
+    Tâm $O$ của đĩa là tâm tam giác đều $ABC$ đồng thời là hình chiếu mặt phẳng đĩa của $I$.
+    
+    Khi đó lực căng trên ba dây bằng nhau: $F_A=F_B=F_C=F$.
+    
+    Các lực căng tạo với chiều thẳng đứng góc $\alpha$ như hình.
+    
+    \noindent \textit{Bước 3. Góc nghiêng của dây}
+    
+    Xét $\triangle SAO$ vuông tại $O$ có $OA=R=20\,\mathrm{cm}$, $SA=60\,\mathrm{cm}$.
+    
+    Gọi $\alpha$ là góc giữa dây và phương thẳng đứng. Khi đó
+    $$
+    \sin\alpha=\frac{OA}{SA}=\frac{20}{60}=\frac{1}{3}
+    \Rightarrow \cos\alpha=\sqrt{1-\sin^2\alpha}
+    =\frac{2\sqrt{2}}{3}.
+    $$
+    
+    \noindent \textit{Bước 4. Cân bằng lực}
+    
+    Theo phương thẳng đứng ta có:
+    $$
+    P=3F\cos\alpha
+    \Leftrightarrow
+    F=\frac{P}{3\cos\alpha}
+    =\displaystyle \frac{90}{3\cdot\displaystyle\frac{2\sqrt{2}}{3}}
+    =\frac{45}{\sqrt{2}}
+    \approx31,8\,\mathrm{N}.
+    $$
+   
+    \noindent \underline{\textbf{Lời khuyên:}}
+Trong các bài toán cân bằng lực có nhiều dây hoặc sợi xích được bố trí đối xứng, nên kiểm tra tính đối xứng của hệ thống trước khi phân tích lực. Khi các lực căng có cùng độ lớn và các thành phần theo phương ngang triệt tiêu từng đôi một, hợp lực của chúng chỉ còn thành phần theo phương thẳng đứng. Khi đó, có thể chỉ cần xét phương thẳng đứng để thiết lập phương trình cân bằng, giúp giảm đáng kể số lượng phép tính.
+    \begin{vd}
+        Một chiếc ô tô được đặt trên mặt đáy dưới của một khung sắt có dạng hình hộp chữ nhật với đáy trên là hình chữ nhật $ABCD$, mặt phẳng $(ABCD)$ song song với mặt phẳng nằm ngang. Khung sắt được buộc bởi một đầu móc $E$ của chiếc cần cẩu sao cho các đoạn dây cáp $EA,EB,EC,ED$ có độ dài bằng nhau và cùng tạo với mặt phẳng $(ABCD)$ một góc bằng $60^\circ$ (hình vẽ).
+         \begin{center}
+                \includegraphics[width=0.4 \textwidth]{Hinh22.jpg}
+        \end{center}
+        Chiếc cần cẩu kéo khung sắt lên theo phương thẳng đứng. Trọng lượng của chiếc xe ô tô bằng bao nhiêu Newton? (làm tròn đến hàng đơn vị), biết rằng các lực căng $\vec{F}_1,\vec{F}_2,\vec{F}_3,\vec{F}_4$ đều có cường độ là $3500\,\mathrm{N}$ và trọng lượng của khung sắt là $2500\,\mathrm{N}$.
+        \end{vd}
+        \noindent \underline{\textbf{Nhận xét của tác giả:}}
+        Ví dụ này được lựa chọn vì mô tả một tình huống thực tế trong hoạt động nâng vật bằng cần cẩu, trong đó nhiều lực căng của các dây cáp cùng tác dụng lên một hệ thống. Nếu ở \textbf{Ví dụ 4.2.1}, ta xét sự cân bằng của một vật được treo bởi hai dây, còn ở \textbf{Ví dụ 4.2.2} khai thác tính đối xứng của ba dây xích, thì ví dụ này mở rộng mô hình lên bốn dây cáp được bố trí đối xứng trong không gian. Đặc biệt, bài toán không chỉ yêu cầu xác định lực căng mà còn sử dụng hợp lực của bốn lực căng để xác định trọng lượng của ô tô. Qua đó, ví dụ minh họa rõ hơn vai trò của phép cộng vectơ và tính đối xứng trong các bài toán tổng hợp lực.
+        
+        \noindent \underline{\textbf{Ý tưởng giải:}}
+        Khai thác tính đối xứng của hình chữ nhật $ABCD$ và hệ thống bốn dây cáp để biểu diễn các lực căng $\vec{F}_1,\vec{F}_2,\vec{F}_3,\vec{F}_4$ theo các vectơ đơn vị cùng phương với các dây cáp. Do các dây cáp có cùng độ dài và cùng tạo với mặt phẳng $(ABCD)$ một góc $60^\circ$, bốn lực căng có cùng độ lớn và các thành phần nằm trong mặt phẳng $(ABCD)$ triệt tiêu nhau. Vì vậy, hợp lực của bốn lực căng có phương thẳng đứng. Tính độ lớn hợp lực này, sau đó sử dụng điều kiện cân bằng của khung cùng với trọng lượng của khung để xác định trọng lượng của chiếc ô tô.
+
+        \noindent \underline{\textbf{Lời giải cụ thể:}}
+
+            \noindent \textit{Bước 1. Mô hình và ký hiệu}
+            
+            Mặt phẳng $(ABCD)$ nằm ngang, $E$ ở trên.
+            
+            Bốn dây căng $AE,BE,CE,DE$ cùng độ dài và tạo với mặt phẳng $(ABCD)$ góc $60^\circ$.
+            
+            Lực căng trên mỗi dây:
+            $|\vec{F}_1|=|\vec{F}_2|=|\vec{F}_3|=|\vec{F}_4|=3500\,\mathrm{N}$.
+            
+            Trọng lượng lồng chim và xe: $P_1=2500\,\mathrm{N}$, trọng lượng của xe $P$.
+            
+            Gọi $O$ là hình chiếu của $E$ xuống mặt phẳng $(ABCD)\Rightarrow O$ là tâm của $ABCD$.
+            
+    \noindent \textit{Bước 2. Điều kiện}
+            
+            Vì các lực được theo dây nên tổng $\vec{F}_1+\vec{F}_2+\vec{F}_3+\vec{F}_4$ thỏa mãn
+            $$
+            \vec{F}_1=k\vec{EA},\quad
+            \vec{F}_2=k\vec{EB},\quad
+            \vec{F}_3=k\vec{EC},\quad
+            \vec{F}_4=k\vec{ED}
+            $$
+            $$
+            \Rightarrow
+            \vec{F}_1+\vec{F}_2+\vec{F}_3+\vec{F}_4
+            =k(\vec{EA}+\vec{EB}+\vec{EC}+\vec{ED})
+            =k\cdot4\vec{EO}.
+            $$
+            Mà $|\vec{F}_i|=3500\,\mathrm{N}\Rightarrow k\cdot EA=3500$.
+            
+            Ta có $EA\sin60^\circ=EO$ nên
+            $$
+            |\vec{F}_1+\vec{F}_2+\vec{F}_3+\vec{F}_4|
+            =4\cdot3500\sin60^\circ
+            =7000\sqrt{3}\,\mathrm{N}.
+            $$
+            
+        \noindent \textit{Bước 3. Cân bằng lực theo phương thẳng đứng}
+            
+            Khi cầu treo lên, tổng bốn lực có hướng xuống đáy dây bằng tổng trọng lượng xe và khung:
+            $$
+            |\vec{F}_1+\vec{F}_2+\vec{F}_3+\vec{F}_4|
+            =P+P_1.
+            $$
+            Vậy trọng lượng của chiếc xe ô tô bằng
+            $ P=7000\sqrt{3}-2500\approx9624\,\mathrm{N}.$
+
+        \noindent \underline{\textbf{Lời khuyên:}} Trong các bài toán tổng hợp lực có nhiều dây cáp hoặc dây treo được bố trí đối xứng, nên tận dụng tính đối xứng trước khi thực hiện các phép tính vectơ. Thay vì tính riêng toàn bộ các thành phần của từng lực, có thể nhận ra rằng các thành phần nằm ngang triệt tiêu nhau, trong khi các thành phần theo phương thẳng đứng cùng chiều và tạo thành hợp lực. Ngoài ra, cần xác định rõ hệ vật đang xét để không bỏ sót các lực tác dụng lên hệ; trong bài toán này, cần xét cả trọng lượng của khung sắt và trọng lượng của chiếc ô tô.
+              
+    \chapter*{KẾT LUẬN}
+
+
+        Tiểu luận này tập trung tìm hiểu và vận dụng vectơ trong việc giải quyết một số bài toán thực tế. Trước hết, tôi hệ thống lại những kiến thức cơ bản về vectơ trong không gian, hệ trục tọa độ $Oxyz$, tọa độ điểm, tọa độ vectơ và các phép toán vectơ cần thiết làm cơ sở cho việc nghiên cứu các nội dung tiếp theo.
+        
+        Trên nền tảng đó, tiểu luận trình bày một số dạng toán thực tế liên quan đến việc xác định tọa độ điểm, tọa độ vectơ và tính toán các đại lượng hình học trong không gian. Bên cạnh đó, tích vô hướng và các biểu thức tọa độ của vectơ được vận dụng để giải quyết các bài toán về khoảng cách, độ dài, diện tích và thể tích trong những mô hình hình học cụ thể. Cuối cùng, vectơ được sử dụng để biểu diễn các lực và thiết lập điều kiện cân bằng trong một số tình huống thực tế liên quan đến lực căng của dây và tổng hợp lực.
+        
+        Các ví dụ trong tiểu luận được lựa chọn từ những tình huống có nội dung gần gũi với thực tế như chuyển động của vật, xác định vị trí các đối tượng trong không gian, trang trí không gian, máng trượt nước, hệ thống dây treo và hoạt động của cần cẩu. Đối với mỗi ví dụ, việc trình bày lý do lựa chọn và ý tưởng giải trước khi thực hiện lời giải giúp làm rõ quá trình chuyển từ tình huống thực tế sang mô hình toán học, đồng thời cho thấy vai trò của vectơ trong việc giải quyết vấn đề.
+        
+        Thông qua việc thực hiện đề tài, tôi có cơ hội củng cố các kiến thức về vectơ và tọa độ trong không gian, đồng thời rèn luyện khả năng phân tích, mô hình hóa và trình bày lời giải đối với các bài toán gắn với thực tiễn. Qua đó, tôi nhận thấy vectơ không chỉ là một công cụ hình học mà còn có thể được vận dụng linh hoạt để mô tả vị trí, khoảng cách và các đại lượng có hướng trong nhiều tình huống khác nhau.
+        
+        Do thời gian thực hiện và kiến thức còn hạn chế, tiểu luận khó tránh khỏi những thiếu sót. Tôi rất mong nhận được những ý kiến đóng góp của quý thầy cô và các bạn để nội dung tiểu luận được hoàn thiện hơn.
+
+
+    \addcontentsline{toc}{chapter}{KẾT LUẬN}
+
+    \chapter*{\underline{TÀI LIỆU THAM KHẢO}}
+    \addcontentsline{toc}{chapter}{TÀI LIỆU THAM KHẢO}
+    \noindent [1] Đỗ Đức Thái (Tổng Chủ biên kiêm Chủ biên), Phạm Xuân Chung, Nguyễn Sơn Hà, Nguyễn Thị Phương Loan, Phạm Sỹ Nam, Phạm Minh Phương (2024), \textit{Toán 12, Tập 1 (Cánh Diều)}, Nhà xuất bản Đại học Sư phạm.
+
+    \noindent [2] Trần Nam Dũng (Tổng Chủ biên), Trần Đức Huyên, Nguyễn Thành Anh (đồng Chủ biên), Vũ Như Thư Hương, Ngô Hoàng Long, Phạm Hoàng Quân, Phạm Thị Thu Thủy (2024), \textit{Toán 12, Tập 1 (Chân trời sáng tạo)}, Nhà xuất bản Giáo dục Việt Nam.
+    
+    \noindent [3] Hà Huy Khoái (Tổng Chủ biên), Cung Thế Anh, Trần Văn Tấn, Đặng Hùng Thắng (đồng Chủ biên), Lê Văn Cường, Trần Mạnh Cường, Nguyễn Đạt Đăng, Lê Văn Hiện, Phan Thanh Hồng, Trần Đình Kế, Phạm Anh Minh, Nguyễn Thị Kim Sơn (2024), \textit{Toán 12, Tập 1 (Kết nối tri thức với cuộc sống)}, Nhà xuất bản Giáo dục Việt Nam.
+    
+    \noindent [4] Đỗ Đức Thái (Tổng Chủ biên kiêm Chủ biên), Phạm Xuân Chung, Nguyễn Sơn Hà, Nguyễn Thị Phương Loan, Phạm Sỹ Nam, Phạm Minh Phương (2024), \textit{Bài tập Toán 12, Tập 1 (Cánh Diều)}, Nhà xuất bản Đại học Sư phạm.
+    
+    \noindent [5] Trần Đức Huyên, Nguyễn Thành Anh (đồng Chủ biên), Vũ Như Thư Hương, Ngô Hoàng Long, Phạm Hoàng Quân, Phạm Thị Thu Thủy (2024), \textit{Bài tập Toán 12, Tập 1 (Chân trời sáng tạo)}, Nhà xuất bản Giáo dục Việt Nam.
+    
+    \noindent [6] Cung Thế Anh, Trần Văn Tấn, Trần Mạnh Cường, Đặng Hùng Thắng, Lê Văn Cường, Nguyễn Đạt Đăng, Lê Văn Hiện, Trần Đình Kế, Phạm Anh Minh, Nguyễn Thị Kim Sơn (2024), \textit{Bài tập Toán 12, Tập 1 (Kết nối tri thức với cuộc sống)}, Nhà xuất bản Giáo dục Việt Nam.
+    
+    \noindent [7] Đỗ Văn Đức, \textit{Hành trình chinh phục thực tế}, Nhà xuất bản Văn hóa Dân tộc.
+
+    \noindent [8] Đỗ Văn Đức (2025), \textit{Hành trình chinh phục Toán 12, Tập 1}, Nhà xuất bản Văn hóa Dân tộc.
+
+        
+\end{document}
+
+    
