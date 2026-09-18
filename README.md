@@ -1,4 +1,4 @@
-# 📐 Dự Án Viết Tiểu Luận: Vectơ Trong Các Bài Toán Thực Tế
+# Dự Án Viết Tiểu Luận: Vectơ Trong Các Bài Toán Thực Tế
 
 Chào mừng bạn đến với kho lưu trữ **dự án tiểu luận về Vectơ trong các bài toán thực tế**.  
 Đây là nơi tổng hợp và quản lý toàn bộ quá trình thực hiện dự án, từ tìm hiểu kiến thức, xây dựng nội dung, mô hình hóa các tình huống thực tế đến hoàn thiện bài tiểu luận và các tài liệu đi kèm.
